@@ -1,0 +1,138 @@
+1. Full Name: Kowshik kumar Yanamala
+
+2. Role Title:  Aspiring Full Stack Developer/
+
+3. Short Tagline:
+   (Example: “Building scalable and modern web experiences”)
+
+4. Skills:
+   ( 
+
+    
+
+   **Frontend:**
+    HTML
+
+    
+
+   **Backend:**
+    Python (Basics), Java (Basics)
+
+    
+
+   **Databases:**
+    SQL
+
+    
+
+   **Languages:**
+    Python, C, C++, Java (Basics)
+
+    
+
+   **Tools:**
+    MS Office, VS Code, GitHub (if you use it)
+
+     )
+
+5. Tech Stack:
+   ( just starting with React, Next.js, Node.js Python, MongoDB, etc.)
+
+6. Projects:
+
+   * Project Name : Echo Learn
+   * Short Description:  
+
+     **EchoLearn** is an **AI-powered interactive learning platform** designed to make education more engaging and personalized.
+
+      
+
+     It enables students to learn through conversational AI, active recall, and real-time feedback, moving beyond passive content consumption.
+
+      
+
+     Built as the core frontend with React, TypeScript, and Supabase, it aims to deliver intelligent tutoring, adaptive learning paths, and seamless educational experiences.
+
+      
+
+     Ready to use this description on GitHub? I can refine it further if needed!
+
+       
+   * Tech Used:**React 18** (with TypeScript), **TypeScript,** **Vite** (Build Tool), **Tailwind CSS, shadcn/ui** (Component Library), **Supabase** (Backend), **React Router DOM** (Routing)
+
+       
+   * GitHub Link (optional):https://github.com/kowshiii1208/echolearn-core-ai
+   * Live Demo (optional): https://learn-buddy-core.lovable.app
+   *
+
+* project 2: 
+* * Project Name : Medicare Assistant
+  * Short Description: 
+
+    AI-powered Medicare Assistant that makes healthcare insurance easier for seniors by providing instant guidance on plans, coverage, costs, and enrollment."
+
+     
+
+    Would you like me to adjust it based on specific features of your project (like tech stack, voice support, personalized recommendations, etc.)? Just share a few details and I’ll refine it
+
+      
+  * Tech Used:**React 18** (with TypeScript), **TypeScript,** **Vite** (Build Tool), **Tailwind CSS, shadcn/ui** (Component Library), **Supabase** (Backend), **React Router DOM** (Routing)
+
+      
+  * GitHub Link (optional):
+  * Live Demo (optional): 
+*
+*   
+
+1. Education: SSC- ZPHS Venkatachalam, Nellore with 91.33% aggregate and +2 in VISWASAI EDUCATIONAL INSTITUTIONS, Nellore with 97.8% aggregate and currently pursueing BTech first year in Aditya University ,Surampalem, Kakinada
+
+2. Certifications: python essentials 1 , C essentials 1, 
+
+3. Internship / Experience: Fresher
+
+4. Achievements: completed 100 problems on LEETCODE and 850 Problems on Codechef 
+
+5. GitHub Link: https://github.com/kowshiii1208
+
+6. LinkedIn Link: https://www.linkedin.com/in/kowshik-kumar-yanamala-613992369
+
+7. LeetCode / CodeChef / HackerRank: https://leetcode.com/u/Kowshik_Kumar , https://www.codechef.com/users/kowshiii_1208, https://www.hackerrank.com/profile/kowshiii1208
+
+8. Resume Link (optional): 
+
+9. Email: [kowshiii1208@gmail.com](mailto:kowshiii1208@gmail.com)
+
+10. Phone (optional): 9392632410
+
+11. Location:
+
+12. Portfolio Style:
+    Choose one: Minimal Premium + Apple-style +  Light Glassmorphism     
+
+* Futuristic
+* Minimal Premium
+* Cyberpunk
+* Apple-style
+* Developer Terminal
+* 3D Interactive
+* AI-Themed
+* Glassmorphism
+
+19. Preferred Color Theme:
+
+ 
+
+| PurposeColor     |                          |
+| ---------------- | ------------------------ |
+| Background       | `#0F1117`                |
+| Card Background  | `rgba(255,255,255,0.06)` |
+| Primary Accent   | `#3B82F6`                |
+| Secondary Accent | `#22D3EE`                |
+| Main Text        | `#F9FAFB`                |
+| Secondary Text   | `#9CA3AF`                |
+
+  
+
+19. Any portfolio websites you like: abhishekkandel.com.np
+20. Extra features you want:
+    Fade-in sections, Smooth scrolling, Hover effects, Card lift animations, Soft transitions
