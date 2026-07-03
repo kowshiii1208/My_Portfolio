@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cursorRing) cursorRing.style.display = 'none';
         if (cursorLabel) cursorLabel.style.display = 'none';
     } else {
+        document.body.classList.add('custom-cursor-active');
         // Init positions off-screen so cursors never flash in the corner
         let mouseX = -500, mouseY = -500; // target mouse coordinates
         let dotX = -500, dotY = -500;     // current dot positions
@@ -375,6 +376,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
+       THEME TOGGLING (DARK / LIGHT MODE)
+       ========================================================================== */
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const iconMoon = themeToggleBtn ? themeToggleBtn.querySelector('.icon-moon') : null;
+    const iconSun = themeToggleBtn ? themeToggleBtn.querySelector('.icon-sun') : null;
+
+    // Check localStorage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+        document.body.classList.add('light-theme');
+        if (iconMoon) iconMoon.style.display = 'none';
+        if (iconSun) iconSun.style.display = 'block';
+    } else {
+        document.body.classList.remove('light-theme');
+        if (iconMoon) iconMoon.style.display = 'block';
+        if (iconSun) iconSun.style.display = 'none';
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isLight = document.body.classList.toggle('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+
+            if (isLight) {
+                if (iconMoon) iconMoon.style.display = 'none';
+                if (iconSun) iconSun.style.display = 'block';
+            } else {
+                if (iconMoon) iconMoon.style.display = 'block';
+                if (iconSun) iconSun.style.display = 'none';
+            }
+        });
+    }
+
+    /* ==========================================================================
        NAVBAR SCROLL & MOBILE TOGGLE
        ========================================================================== */
     const header = document.querySelector('.navbar-container');
@@ -409,20 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
        SCROLL SECTION ACTIVE STATE & SKILL BAR ANIMATIONS
        ========================================================================== */
     const sections = document.querySelectorAll('section');
-    const skillBars = document.querySelectorAll('.skill-bar-fill');
     
-    // Reset skill bars initial width to 0 for animation trigger
-    skillBars.forEach(bar => {
-        bar.dataset.width = bar.style.width;
-        bar.style.width = '0';
-    });
-
-    function animateSkills() {
-        skillBars.forEach(bar => {
-            bar.style.width = bar.dataset.width;
-        });
-    }
-
     const scrollObserverOptions = {
         threshold: 0.25,
         rootMargin: "0px 0px -20% 0px"
@@ -440,11 +464,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         link.classList.remove('active');
                     }
                 });
-
-                // Trigger skill animations specifically when entering skills section
-                if (id === 'skills') {
-                    animateSkills();
-                }
             }
         });
     }, scrollObserverOptions);

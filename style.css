@@ -28,6 +28,22 @@
     --transition-fast: all 0.2s ease;
 }
 
+/* Light Theme Variables */
+body.light-theme {
+    --bg-color: #F3F4F6;
+    --card-bg: rgba(0, 0, 0, 0.03);
+    --card-bg-hover: rgba(0, 0, 0, 0.06);
+    --primary-accent: #1D4ED8;
+    --primary-accent-rgb: 29, 78, 216;
+    --secondary-accent: #0E7490;
+    --secondary-accent-rgb: 14, 116, 144;
+    --main-text: #111827;
+    --secondary-text: #4B5563;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.15);
+}
+
+
 /* ==========================================================================
    BASE STYLES & RESET
    ========================================================================== */
@@ -37,12 +53,6 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-    background-color: var(--bg-color);
-}
-
 body {
     font-family: var(--font-primary);
     background-color: var(--bg-color);
@@ -50,7 +60,16 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-color);
+}
+
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -886,36 +905,92 @@ a {
     font-weight: 700;
 }
 
-.skills-list {
-    list-style: none;
+.skills-badge-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.skill-badge-item {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 0.6rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+    text-align: center;
+    gap: 8px;
 }
 
-.skill-name-percentage {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
+.skill-badge-item i {
+    font-size: 1.8rem;
+    transition: var(--transition-smooth);
+    color: var(--secondary-text);
+}
+
+.skill-badge-item span {
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    color: var(--secondary-text);
+    transition: var(--transition-smooth);
 }
 
-.skill-bar-bg {
-    width: 100%;
-    height: 6px;
+/* Hover effects with brand glow colors */
+.skill-badge-item:hover {
+    transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    overflow: hidden;
 }
 
-.skill-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
-    border-radius: 10px;
-    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-    width: 0; /* Animated dynamically */
+.skill-badge-item:hover span {
+    color: var(--main-text);
 }
+
+/* Brand specific colors & glows */
+.skill-badge-item[data-tech="html5"]:hover { border-color: #E34F26; box-shadow: 0 5px 15px rgba(227, 79, 38, 0.15); }
+.skill-badge-item[data-tech="html5"]:hover i { color: #E34F26; }
+
+.skill-badge-item[data-tech="css3"]:hover { border-color: #1572B6; box-shadow: 0 5px 15px rgba(21, 114, 182, 0.15); }
+.skill-badge-item[data-tech="css3"]:hover i { color: #1572B6; }
+
+.skill-badge-item[data-tech="react"]:hover { border-color: #61DAFB; box-shadow: 0 5px 15px rgba(97, 218, 251, 0.15); }
+.skill-badge-item[data-tech="react"]:hover i { color: #61DAFB; }
+
+.skill-badge-item[data-tech="tailwind"]:hover { border-color: #38BDF8; box-shadow: 0 5px 15px rgba(56, 189, 248, 0.15); }
+.skill-badge-item[data-tech="tailwind"]:hover i { color: #38BDF8; }
+
+.skill-badge-item[data-tech="python"]:hover { border-color: #3776AB; box-shadow: 0 5px 15px rgba(55, 118, 171, 0.15); }
+.skill-badge-item[data-tech="python"]:hover i { color: #3776AB; }
+
+.skill-badge-item[data-tech="java"]:hover { border-color: #5382A1; box-shadow: 0 5px 15px rgba(83, 130, 161, 0.15); }
+.skill-badge-item[data-tech="java"]:hover i { color: #5382A1; }
+
+.skill-badge-item[data-tech="sql"]:hover { border-color: #0064a5; box-shadow: 0 5px 15px rgba(0, 100, 165, 0.15); }
+.skill-badge-item[data-tech="sql"]:hover i { color: #0064a5; }
+
+.skill-badge-item[data-tech="supabase"]:hover { border-color: #3ECF8E; box-shadow: 0 5px 15px rgba(62, 207, 142, 0.15); }
+.skill-badge-item[data-tech="supabase"]:hover i { color: #3ECF8E; }
+
+.skill-badge-item[data-tech="c"]:hover { border-color: #A8B9CC; box-shadow: 0 5px 15px rgba(168, 185, 204, 0.15); }
+.skill-badge-item[data-tech="c"]:hover i { color: #A8B9CC; }
+
+.skill-badge-item[data-tech="cpp"]:hover { border-color: #00599C; box-shadow: 0 5px 15px rgba(0, 89, 156, 0.15); }
+.skill-badge-item[data-tech="cpp"]:hover i { color: #00599C; }
+
+.skill-badge-item[data-tech="vscode"]:hover { border-color: #007ACC; box-shadow: 0 5px 15px rgba(0, 122, 204, 0.15); }
+.skill-badge-item[data-tech="vscode"]:hover i { color: #007ACC; }
+
+.skill-badge-item[data-tech="git"]:hover { border-color: #F05032; box-shadow: 0 5px 15px rgba(240, 80, 50, 0.15); }
+.skill-badge-item[data-tech="git"]:hover i { color: #F05032; }
+
+.skill-badge-item[data-tech="msoffice"]:hover { border-color: #D83B01; box-shadow: 0 5px 15px rgba(216, 59, 1, 0.15); }
+.skill-badge-item[data-tech="msoffice"]:hover i { color: #D83B01; }
+
+.skill-badge-item[data-tech="vite"]:hover { border-color: #646CFF; box-shadow: 0 5px 15px rgba(100, 108, 255, 0.15); }
+.skill-badge-item[data-tech="vite"]:hover i { color: #646CFF; }
 
 /* ==========================================================================
    PROJECTS SECTION
@@ -2406,7 +2481,10 @@ a {
    CURSOR: NONE — hide default cursor on pointer devices (custom cursor active)
    ========================================================================== */
 @media (pointer: fine) {
-    *, *::before, *::after {
+    body.custom-cursor-active,
+    body.custom-cursor-active *,
+    body.custom-cursor-active *::before,
+    body.custom-cursor-active *::after {
         cursor: none !important;
     }
 }
@@ -2758,3 +2836,356 @@ section[id] {
 .btn-submit:hover::before {
     left: 160%;
 }
+
+/* ==========================================================================
+   THEME TOGGLE BUTTON & LIGHT THEME OVERRIDES
+   ========================================================================== */
+.theme-toggle-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--secondary-text);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--main-text);
+    border-color: var(--border-hover);
+    background: var(--card-bg-hover);
+    transform: scale(1.05);
+}
+
+.theme-toggle-btn i {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-toggle-btn:hover i {
+    transform: rotate(15deg);
+}
+
+/* Light Theme specific overrides */
+body.light-theme .json-val {
+    color: #059669;
+}
+
+body.light-theme .code-editor-body {
+    color: #111827;
+}
+
+body.light-theme::-webkit-scrollbar-track {
+    background: #F3F4F6;
+}
+
+body.light-theme::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border: 2px solid #F3F4F6;
+}
+
+body.light-theme::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+body.light-theme .custom-cursor-dot {
+    background: #111827;
+}
+
+body.light-theme .custom-cursor-ring {
+    border-color: rgba(17, 24, 39, 0.35);
+}
+
+body.light-theme .custom-cursor-ring.hovered {
+    border-color: var(--secondary-accent);
+    background-color: rgba(var(--secondary-accent-rgb), 0.08);
+}
+
+body.light-theme .custom-cursor-ring.text-hovered {
+    background-color: #111827;
+    border-color: #111827;
+}
+
+body.light-theme .custom-cursor-ring.labeled {
+    background-color: #111827;
+    border-color: #111827;
+}
+
+body.light-theme .custom-cursor-label {
+    color: #F9FAFB;
+}
+
+body.light-theme .site-footer {
+    background-color: #E5E7EB;
+}
+
+body.light-theme .navbar {
+    background: rgba(243, 244, 246, 0.6);
+}
+
+body.light-theme .navbar-container.scrolled .navbar {
+    background: rgba(243, 244, 246, 0.85);
+}
+
+body.light-theme .nav-menu {
+    background: rgba(243, 244, 246, 0.95);
+}
+
+body.light-theme .logo-dot {
+    background: var(--primary-accent);
+}
+
+body.light-theme .nav-logo span {
+    color: var(--secondary-accent);
+}
+
+body.light-theme .btn-nav {
+    color: #ffffff;
+    background: var(--primary-accent);
+    box-shadow: 0 4px 10px rgba(var(--primary-accent-rgb), 0.2);
+}
+
+body.light-theme .btn-nav:hover {
+    background: var(--secondary-accent);
+    box-shadow: 0 6px 15px rgba(var(--secondary-accent-rgb), 0.4);
+}
+
+body.light-theme .nav-link.active {
+    color: var(--primary-accent);
+    background: rgba(var(--primary-accent-rgb), 0.08);
+    border-color: rgba(var(--primary-accent-rgb), 0.15);
+}
+
+body.light-theme .scroll-indicator {
+    color: var(--secondary-text);
+}
+
+body.light-theme .timeline-dot {
+    background: #F3F4F6;
+}
+
+body.light-theme .timeline-item:hover .timeline-dot {
+    background: var(--primary-accent);
+    box-shadow: 0 0 10px var(--primary-accent);
+}
+
+body.light-theme .timeline-item:first-child .timeline-dot {
+    border-color: var(--primary-accent);
+    background: rgba(var(--primary-accent-rgb), 0.15);
+    box-shadow: 0 0 0 0 rgba(var(--primary-accent-rgb), 0.6);
+    animation: dotPulseLight 2.2s ease-in-out infinite;
+}
+
+@keyframes dotPulseLight {
+    0%   { box-shadow: 0 0 0 0   rgba(var(--primary-accent-rgb), 0.6); }
+    70%  { box-shadow: 0 0 0 8px rgba(var(--primary-accent-rgb), 0);   }
+    100% { box-shadow: 0 0 0 0   rgba(var(--primary-accent-rgb), 0);   }
+}
+
+body.light-theme .form-group input, 
+body.light-theme .form-group textarea {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+body.light-theme .form-group input:focus, 
+body.light-theme .form-group textarea:focus {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(var(--primary-accent-rgb), 0.15);
+}
+
+/* ==========================================================================
+   INTERACTIVE RESUME MODAL
+   ========================================================================== */
+.resume-modal-body {
+    max-width: 900px;
+    height: 85vh;
+    background: var(--bg-color) !important;
+    border-radius: 20px;
+}
+
+.resume-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2.5rem;
+    color: var(--main-text);
+    font-family: var(--font-secondary);
+}
+
+.resume-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.resume-header-actions h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--main-text) 0%, var(--primary-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.light-theme .resume-header-actions h2 {
+    background: linear-gradient(135deg, var(--main-text) 0%, var(--secondary-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.resume-sheet {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01);
+    text-align: left;
+    transition: var(--transition-smooth);
+}
+
+body.light-theme .resume-sheet {
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.resume-sheet-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.resume-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+    color: var(--main-text);
+}
+
+.resume-subtitle {
+    color: var(--secondary-accent);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.resume-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+}
+
+.resume-contacts span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.resume-contacts i {
+    color: var(--primary-accent);
+}
+
+.resume-sheet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+}
+
+@media (max-width: 800px) {
+    .resume-sheet-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.resume-section {
+    margin-bottom: 1.8rem;
+}
+
+.resume-section-title {
+    font-size: 1.05rem;
+    border-bottom: 2px solid var(--secondary-accent);
+    padding-bottom: 4px;
+    margin-bottom: 1rem;
+    color: var(--main-text);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.light-theme .resume-section-title {
+    border-bottom-color: var(--primary-accent);
+}
+
+.resume-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--secondary-text);
+}
+
+.resume-item {
+    margin-bottom: 1.2rem;
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--main-text);
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.resume-item-sub {
+    color: var(--secondary-text);
+    font-size: 0.82rem;
+    font-style: italic;
+    margin-bottom: 4px;
+}
+
+.resume-list {
+    padding-left: 20px;
+    font-size: 0.82rem;
+    color: var(--secondary-text);
+    line-height: 1.5;
+    margin-top: 4px;
+    list-style-type: disc;
+}
+
+.resume-list li {
+    margin-bottom: 4px;
+}
+
+.resume-skills-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--secondary-text);
+}
+
+.resume-skills-list li {
+    margin-bottom: 6px;
+}
+
+.resume-skills-list li strong {
+    color: var(--main-text);
+}
+
+

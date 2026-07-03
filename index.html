@@ -42,6 +42,10 @@
             </ul>
 
             <div class="nav-right">
+                <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                    <i class="fa-solid fa-sun icon-sun" style="display: none;"></i>
+                </button>
                 <a href="#contact" class="btn-nav">Hire Me</a>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
                     <span class="bar"></span>
@@ -101,7 +105,7 @@
                     <div class="hero-image-card">
                         <div class="glow-border"></div>
                         <div class="image-inner">
-                            <img src="KOWSHIK KUMAR IMAGAE.jpeg" alt="Kowshik Kumar Yanamala" class="profile-img">
+                            <img src="media/kowshik-kumar-image.jpeg" alt="Kowshik Kumar Yanamala" class="profile-img">
                             <div class="card-overlay"></div>
                         </div>
                     </div>
@@ -202,36 +206,24 @@
                             <i class="fa-solid fa-laptop-code"></i>
                             <h3>Frontend</h3>
                         </div>
-                        <ul class="skills-list">
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>HTML5</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>CSS3 / Vanilla CSS</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>React.js</span>
-                                    <span>65%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 65%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Tailwind CSS</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
-                            </li>
-                        </ul>
+                        <div class="skills-badge-container">
+                            <div class="skill-badge-item" data-tech="html5">
+                                <i class="fa-brands fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="css3">
+                                <i class="fa-brands fa-css3-alt"></i>
+                                <span>CSS3 / Vanilla CSS</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="react">
+                                <i class="fa-brands fa-react"></i>
+                                <span>React.js</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="tailwind">
+                                <i class="fa-solid fa-wind"></i>
+                                <span>Tailwind CSS</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Backend & Databases -->
@@ -240,36 +232,24 @@
                             <i class="fa-solid fa-server"></i>
                             <h3>Backend & Databases</h3>
                         </div>
-                        <ul class="skills-list">
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Python (Backend Basics)</span>
-                                    <span>60%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 60%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Java (Basics)</span>
-                                    <span>55%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 55%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>SQL</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Supabase (Backend-as-a-Service)</span>
-                                    <span>65%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 65%;"></div></div>
-                            </li>
-                        </ul>
+                        <div class="skills-badge-container">
+                            <div class="skill-badge-item" data-tech="python">
+                                <i class="fa-brands fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="java">
+                                <i class="fa-brands fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="sql">
+                                <i class="fa-solid fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="supabase">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>Supabase</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Programming Languages -->
@@ -278,36 +258,24 @@
                             <i class="fa-solid fa-terminal"></i>
                             <h3>Programming Languages</h3>
                         </div>
-                        <ul class="skills-list">
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Python</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>C</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>C++</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Java</span>
-                                    <span>60%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 60%;"></div></div>
-                            </li>
-                        </ul>
+                        <div class="skills-badge-container">
+                            <div class="skill-badge-item" data-tech="python">
+                                <i class="fa-brands fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="c">
+                                <i class="fa-solid fa-terminal"></i>
+                                <span>C</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="cpp">
+                                <i class="fa-solid fa-code"></i>
+                                <span>C++</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="java">
+                                <i class="fa-brands fa-java"></i>
+                                <span>Java</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Developer Tools -->
@@ -316,36 +284,24 @@
                             <i class="fa-solid fa-toolbox"></i>
                             <h3>Tools & Environment</h3>
                         </div>
-                        <ul class="skills-list">
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>VS Code</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Git / GitHub</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>MS Office Suite</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-name-percentage">
-                                    <span>Vite (Build Tool)</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
-                            </li>
-                        </ul>
+                        <div class="skills-badge-container">
+                            <div class="skill-badge-item" data-tech="vscode">
+                                <i class="fa-solid fa-laptop-code"></i>
+                                <span>VS Code</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="git">
+                                <i class="fa-brands fa-git-alt"></i>
+                                <span>Git / GitHub</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="msoffice">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <span>MS Office Suite</span>
+                            </div>
+                            <div class="skill-badge-item" data-tech="vite">
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                                <span>Vite</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -364,7 +320,7 @@
                     <!-- Project 1 -->
                     <div class="project-card card-glass">
                         <div class="project-img-wrapper">
-                            <img src="ECHOLEARN.png" alt="Echo Learn Platform Screenshot" class="project-img">
+                            <img src="media/echolearn.png" alt="Echo Learn Platform Screenshot" class="project-img">
                             <div class="project-tags">
                                 <span class="tag">React 18</span>
                                 <span class="tag">TypeScript</span>
@@ -391,7 +347,7 @@
                     <!-- Project 2 -->
                     <div class="project-card card-glass">
                         <div class="project-img-wrapper">
-                            <img src="MEDICARE ASSISTANT.jpeg" alt="Medicare Assistant Screenshot" class="project-img">
+                            <img src="media/medicare-assistant.jpeg" alt="Medicare Assistant Screenshot" class="project-img">
                             <div class="project-tags">
                                 <span class="tag">React 18</span>
                                 <span class="tag">TypeScript</span>
@@ -692,7 +648,7 @@
                                 </div>
                             </div>
                             <div class="hack-card-footer">
-                                <button class="btn-preview-achievement" data-file="SIH-HACKATHON1.pdf" data-caption="Smart India Hackathon Finalist Certificate">
+                                <button class="btn-preview-achievement" data-file="media/sih-hackathon.pdf" data-caption="Smart India Hackathon Finalist Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -720,7 +676,7 @@
                                 </div>
                             </div>
                             <div class="hack-card-footer">
-                                <button class="btn-preview-achievement" data-file="HACKSPRINT-2K25 HACKATHON-2.jpg" data-caption="HackSprint 2K25 Participation Certificate">
+                                <button class="btn-preview-achievement" data-file="media/hacksprint-2k25-hackathon.jpg" data-caption="HackSprint 2K25 Participation Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -747,7 +703,7 @@
                                 </div>
                             </div>
                             <div class="hack-card-footer">
-                                <button class="btn-preview-achievement" data-file="IEEE_YESSIST_12-Hackathon-3.jpg" data-caption="IEEE YESSIST 12 Certificate">
+                                <button class="btn-preview-achievement" data-file="media/ieee-yessist-12-hackathon.jpg" data-caption="IEEE YESSIST 12 Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -772,7 +728,7 @@
                                 </div>
                             </div>
                             <div class="cert-action-new">
-                                <button class="btn-preview-achievement" data-file="Python_Essentials_1_certificate_kowshiii1208-gmail-com_d0769cb2-3896-4bc0-a544-7d2d33ae9c68 (1).pdf" data-caption="Python Essentials 1 Certificate">
+                                <button class="btn-preview-achievement" data-file="media/python-essentials-1-certificate.pdf" data-caption="Python Essentials 1 Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -791,7 +747,7 @@
                                 </div>
                             </div>
                             <div class="cert-action-new">
-                                <button class="btn-preview-achievement" data-file="C_Essentials_1_certificate_kowshiii1208-gmail-com_471280ca-9bdb-4893-8808-779db5d7245b.pdf" data-caption="C Essentials 1 Certificate">
+                                <button class="btn-preview-achievement" data-file="media/c-essentials-1-certificate.pdf" data-caption="C Essentials 1 Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -900,7 +856,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project detail..." required></textarea>
+                                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project details..." required></textarea>
                                 </div>
                             </div>
 
@@ -938,130 +894,138 @@
     <!-- Resume Modal -->
     <div id="resumeModal" class="modal-container">
         <span class="modal-close" id="resumeModalClose">&times;</span>
-        <div class="modal-body-container resume-modal-body" style="max-width: 800px; height: 85vh; background: #0F1117;">
-            <div class="resume-wrapper" style="width: 100%; height: 100%; overflow-y: auto; padding: 2.5rem; color: var(--main-text); font-family: var(--font-secondary);">
-                <div class="resume-header-actions" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
-                    <h2 style="font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Interactive Resume</h2>
-                    <a href="Kowshik_Kumar_Yanamala_Resume.docx" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;" download>
+        <div class="modal-body-container resume-modal-body">
+            <div class="resume-wrapper">
+                <div class="resume-header-actions">
+                    <h2>Interactive Resume</h2>
+                    <a href="media/kowshik-kumar-resume.docx" class="btn btn-primary" download>
                         <i class="fa-solid fa-download"></i> Download DOCX
                     </a>
                 </div>
                 
                 <!-- Real Resume Sheet -->
-                <div class="resume-sheet" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 2.5rem; border-radius: 12px; box-shadow: inset 0 0 20px rgba(255,255,255,0.02); text-align: left;">
+                <div class="resume-sheet">
                     <!-- Header -->
-                    <div class="resume-sheet-header" style="text-align: center; margin-bottom: 2rem;">
-                        <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff;">KOWSHIK KUMAR YANAMALA</h1>
-                        <p style="color: var(--secondary-accent); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 1rem;">Aspiring Full Stack Developer</p>
-                        <div class="resume-contacts" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; font-size: 0.85rem; color: var(--secondary-text);">
-                            <span><i class="fa-solid fa-envelope" style="color: var(--primary-accent);"></i> kowshiii1208@gmail.com</span>
+                    <div class="resume-sheet-header">
+                        <h1 class="resume-name">KOWSHIK KUMAR YANAMALA</h1>
+                        <p class="resume-subtitle">Aspiring Full Stack Developer</p>
+                        <div class="resume-contacts">
+                            <span><i class="fa-solid fa-envelope"></i> kowshiii1208@gmail.com</span>
                             <span>|</span>
-                            <span><i class="fa-solid fa-phone" style="color: var(--primary-accent);"></i> +91 9392632410</span>
+                            <span><i class="fa-solid fa-phone"></i> +91 9392632410</span>
                             <span>|</span>
-                            <span><i class="fa-brands fa-github" style="color: var(--primary-accent);"></i> github.com/kowshiii1208</span>
+                            <span><i class="fa-brands fa-github"></i> github.com/kowshiii1208</span>
                             <span>|</span>
-                            <span><i class="fa-brands fa-linkedin" style="color: var(--primary-accent);"></i> linkedin.com/in/kowshik-kumar-yanamala-613992369</span>
+                            <span><i class="fa-brands fa-linkedin"></i> linkedin.com/in/kowshik-kumar-yanamala-613992369</span>
                         </div>
                     </div>
                     
-                    <!-- Objective -->
-                    <div class="resume-sheet-section" style="margin-bottom: 2rem;">
-                        <h3 style="font-size: 1.1rem; border-bottom: 1.5px solid var(--secondary-accent); padding-bottom: 4px; margin-bottom: 0.8rem; color: #fff; font-weight: 700; text-transform: uppercase;">Career Objective</h3>
-                        <p style="font-size: 0.9rem; line-height: 1.6; color: var(--secondary-text);">
-                            Motivated and self-driven Computer Science student with a strong foundation in programming and a passion for building modern, scalable web applications. Eager to contribute to innovative projects as an aspiring Full Stack Developer, leveraging hands-on experience with React, TypeScript, and AI-integrated platforms. Looking for opportunities to grow, collaborate, and make a meaningful impact in the tech industry.
-                        </p>
-                    </div>
-                    
-                    <!-- Education -->
-                    <div class="resume-sheet-section" style="margin-bottom: 2rem;">
-                        <h3 style="font-size: 1.1rem; border-bottom: 1.5px solid var(--secondary-accent); padding-bottom: 4px; margin-bottom: 0.8rem; color: #fff; font-weight: 700; text-transform: uppercase;">Education</h3>
-                        
-                        <div style="margin-bottom: 1rem;">
-                            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.95rem; color: #fff;">
-                                <span>Bachelor of Technology (B.Tech) — 1st Year</span>
-                                <span>2024 – Present</span>
+                    <!-- Resume Two-Column Grid -->
+                    <div class="resume-sheet-grid">
+                        <!-- Left Column -->
+                        <div class="resume-left-col">
+                            <!-- Objective -->
+                            <div class="resume-section">
+                                <h3 class="resume-section-title">Career Objective</h3>
+                                <p class="resume-text">
+                                    Motivated and self-driven Computer Science student with a strong foundation in programming and a passion for building modern, scalable web applications. Eager to contribute to innovative projects as an aspiring Full Stack Developer, leveraging hands-on experience with React, TypeScript, and AI-integrated platforms. Looking for opportunities to grow, collaborate, and make a meaningful impact in the tech industry.
+                                </p>
                             </div>
-                            <div style="color: var(--secondary-text); font-size: 0.85rem; font-style: italic; margin-bottom: 4px;">Aditya University, Surampalem, Kakinada</div>
-                            <p style="font-size: 0.85rem; color: var(--secondary-text);">Currently pursuing B.Tech; building strong foundations in computer science and software development.</p>
-                        </div>
-                        
-                        <div style="margin-bottom: 1rem;">
-                            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.95rem; color: #fff;">
-                                <span>Intermediate (+2) — MPC</span>
-                                <span>2022 – 2024</span>
+                            
+                            <!-- Education -->
+                            <div class="resume-section">
+                                <h3 class="resume-section-title">Education</h3>
+                                
+                                <div class="resume-item">
+                                    <div class="resume-item-header">
+                                        <span>Bachelor of Technology (B.Tech) — 1st Year</span>
+                                        <span>2024 – Present</span>
+                                    </div>
+                                    <div class="resume-item-sub">Aditya University, Surampalem, Kakinada</div>
+                                    <p class="resume-text">Currently pursuing B.Tech; building strong foundations in computer science and software development.</p>
+                                </div>
+                                
+                                <div class="resume-item">
+                                    <div class="resume-item-header">
+                                        <span>Intermediate (+2) — MPC</span>
+                                        <span>2022 – 2024</span>
+                                    </div>
+                                    <div class="resume-item-sub">Viswasai Educational Institutions, Nellore</div>
+                                    <p class="resume-text">Completed with <strong>97.8% aggregate score</strong> — Top academic performance.</p>
+                                </div>
+                                
+                                <div class="resume-item">
+                                    <div class="resume-item-header">
+                                        <span>Secondary School Certificate (SSC)</span>
+                                        <span>2021 – 2022</span>
+                                    </div>
+                                    <div class="resume-item-sub">ZPHS Venkatachalam, Nellore</div>
+                                    <p class="resume-text">Completed with <strong>91.33% aggregate score</strong>.</p>
+                                </div>
                             </div>
-                            <div style="color: var(--secondary-text); font-size: 0.85rem; font-style: italic; margin-bottom: 4px;">Viswasai Educational Institutions, Nellore</div>
-                            <p style="font-size: 0.85rem; color: var(--secondary-text);">Completed with <strong>97.8% aggregate score</strong> — Top academic performance.</p>
-                        </div>
-                        
-                        <div>
-                            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.95rem; color: #fff;">
-                                <span>Secondary School Certificate (SSC)</span>
-                                <span>2021 – 2022</span>
+
+                            <!-- Certifications -->
+                            <div class="resume-section">
+                                <h3 class="resume-section-title">Certifications</h3>
+                                <ul class="resume-list">
+                                    <li>Python Essentials 1 — Cisco Networking Academy</li>
+                                    <li>C Essentials 1 — Cisco Networking Academy</li>
+                                    <li>MS-OFFICE — Sri Muppavarapu Foundation, Nellore</li>
+                                </ul>
                             </div>
-                            <div style="color: var(--secondary-text); font-size: 0.85rem; font-style: italic; margin-bottom: 4px;">ZPHS Venkatachalam, Nellore</div>
-                            <p style="font-size: 0.85rem; color: var(--secondary-text);">Completed with <strong>91.33% aggregate score</strong>.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Skills -->
-                    <div class="resume-sheet-section" style="margin-bottom: 2rem;">
-                        <h3 style="font-size: 1.1rem; border-bottom: 1.5px solid var(--secondary-accent); padding-bottom: 4px; margin-bottom: 0.8rem; color: #fff; font-weight: 700; text-transform: uppercase;">Technical Skills</h3>
-                        <ul style="list-style: none; padding-left: 0; font-size: 0.9rem; line-height: 1.6; color: var(--secondary-text);">
-                            <li style="margin-bottom: 6px;"><strong style="color: #fff;">Frontend:</strong> HTML, CSS, React, Next.js (learning)</li>
-                            <li style="margin-bottom: 6px;"><strong style="color: #fff;">Backend:</strong> Python (Basics), Java (Basics), Node.js (learning)</li>
-                            <li style="margin-bottom: 6px;"><strong style="color: #fff;">Databases:</strong> SQL, MongoDB (learning), Supabase</li>
-                            <li style="margin-bottom: 6px;"><strong style="color: #fff;">Languages:</strong> Python, C, C++, Java</li>
-                            <li style="margin-bottom: 6px;"><strong style="color: #fff;">Tools & Platforms:</strong> VS Code, GitHub, Vite, Tailwind CSS, shadcn/ui, React Router DOM, TypeScript</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Projects -->
-                    <div class="resume-sheet-section" style="margin-bottom: 2rem;">
-                        <h3 style="font-size: 1.1rem; border-bottom: 1.5px solid var(--secondary-accent); padding-bottom: 4px; margin-bottom: 0.8rem; color: #fff; font-weight: 700; text-transform: uppercase;">Projects</h3>
-                        
-                        <div style="margin-bottom: 1.2rem;">
-                            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.95rem; color: #fff;">
-                                <span>EchoLearn — AI-Powered Interactive Learning Platform</span>
-                                <span style="font-weight: 400; font-size: 0.8rem; color: var(--secondary-text);">React, Supabase, TypeScript</span>
-                            </div>
-                            <ul style="padding-left: 20px; font-size: 0.85rem; color: var(--secondary-text); line-height: 1.5; margin-top: 4px; list-style-type: disc;">
-                                <li>Built an AI-powered learning platform enabling students to learn through conversational AI, active recall, and real-time feedback, moving beyond passive content consumption.</li>
-                                <li>Developed an intelligent tutoring system with adaptive learning paths and seamless educational experiences.</li>
-                            </ul>
                         </div>
                         
-                        <div>
-                            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.95rem; color: #fff;">
-                                <span>Medicare Assistant — AI-Powered Healthcare Insurance Guide</span>
-                                <span style="font-weight: 400; font-size: 0.8rem; color: var(--secondary-text);">React, Supabase, Tailwind</span>
+                        <!-- Right Column -->
+                        <div class="resume-right-col">
+                            <!-- Skills -->
+                            <div class="resume-section">
+                                <h3 class="resume-section-title">Technical Skills</h3>
+                                <ul class="resume-skills-list">
+                                    <li><strong>Frontend:</strong> HTML, CSS, React, Next.js, Tailwind CSS</li>
+                                    <li><strong>Backend & DBs:</strong> Python, Java, SQL, Supabase</li>
+                                    <li><strong>Programming Languages:</strong> Python, C, C++, Java</li>
+                                    <li><strong>Tools & Platforms:</strong> VS Code, GitHub, Vite, TypeScript, React Router DOM, shadcn/ui</li>
+                                </ul>
                             </div>
-                            <ul style="padding-left: 20px; font-size: 0.85rem; color: var(--secondary-text); line-height: 1.5; margin-top: 4px; list-style-type: disc;">
-                                <li>Designed an AI-powered Medicare assistant that simplifies healthcare insurance for seniors by providing instant guidance on plans, coverage, costs, and enrollment.</li>
-                                <li>Built responsive, accessible UI to ensure ease of use for elderly users navigating complex insurance decisions.</li>
-                            </ul>
+                            
+                            <!-- Projects -->
+                            <div class="resume-section">
+                                <h3 class="resume-section-title">Projects</h3>
+                                
+                                <div class="resume-item">
+                                    <div class="resume-item-header">
+                                        <span>EchoLearn — AI-Powered Learning Platform</span>
+                                    </div>
+                                    <div class="resume-item-sub">React, Supabase, TypeScript</div>
+                                    <ul class="resume-list">
+                                        <li>Built an AI-powered learning platform enabling students to learn through conversational AI, active recall, and real-time feedback.</li>
+                                        <li>Developed an intelligent tutoring system with adaptive learning paths and seamless educational experiences.</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="resume-item">
+                                    <div class="resume-item-header">
+                                        <span>Medicare Assistant — Healthcare Insurance Guide</span>
+                                    </div>
+                                    <div class="resume-item-sub">React, Supabase, Tailwind</div>
+                                    <ul class="resume-list">
+                                        <li>Designed an AI-powered Medicare assistant that simplifies healthcare insurance for seniors by providing instant guidance on plans, coverage, and costs.</li>
+                                        <li>Built responsive, accessible UI to ensure ease of use for elderly users.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Achievements -->
+                            <div class="resume-section">
+                                <h3 class="resume-section-title">Achievements & Competitive Programming</h3>
+                                <ul class="resume-list">
+                                    <li>Solved 100+ problems on LeetCode demonstrating strong algorithmic skills.</li>
+                                    <li>Solved 900+ problems on CodeChef with consistent practice.</li>
+                                    <li>Attended 15+ coding contests in LEETCODE and CODECHEF.</li>
+                                    <li>Active on HackerRank with proficiency in Python and C++.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <!-- Achievements -->
-                    <div class="resume-sheet-section" style="margin-bottom: 2rem;">
-                        <h3 style="font-size: 1.1rem; border-bottom: 1.5px solid var(--secondary-accent); padding-bottom: 4px; margin-bottom: 0.8rem; color: #fff; font-weight: 700; text-transform: uppercase;">Achievements & Competitive Programming</h3>
-                        <ul style="padding-left: 20px; font-size: 0.85rem; color: var(--secondary-text); line-height: 1.5; margin-top: 4px; list-style-type: disc;">
-                            <li>Solved 100+ problems on LeetCode demonstrating strong algorithmic problem-solving skills.</li>
-                            <li>Solved 900+ problems on CodeChef with consistent competitive programming practice.</li>
-                            <li>Attended 15+ coding contests in LEETCODE and CODECHEF.</li>
-                            <li>Active on HackerRank with proficiency in Python and problem-solving challenges.</li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Certifications -->
-                    <div class="resume-sheet-section">
-                        <h3 style="font-size: 1.1rem; border-bottom: 1.5px solid var(--secondary-accent); padding-bottom: 4px; margin-bottom: 0.8rem; color: #fff; font-weight: 700; text-transform: uppercase;">Certifications</h3>
-                        <ul style="padding-left: 20px; font-size: 0.85rem; color: var(--secondary-text); line-height: 1.5; margin-top: 4px; list-style-type: disc;">
-                            <li>Python Essentials 1 — Cisco Networking Academy</li>
-                            <li>C Essentials 1 — Cisco Networking Academy</li>
-                            <li>MS-OFFICE — Sri Muppavarapu Foundation, Venkatachalam, Nellore</li>
-                        </ul>
                     </div>
                 </div>
             </div>
