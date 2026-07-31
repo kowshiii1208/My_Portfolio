@@ -595,8 +595,144 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transitionDelay = `${i * 0.1}s`;
     });
 
+
     // Staggered hackathon cards
     document.querySelectorAll('.hackathon-showcase-card, .cert-showcase-card').forEach((card, i) => {
         card.style.transitionDelay = `${i * 0.1}s`;
     });
+
+    /* ==========================================================================
+       DYNAMIC CODING STATS — fetches live data from free public APIs
+       Falls back silently to the hardcoded HTML values if any fetch fails.
+       ========================================================================== */
+    async function updateCodingStats() {
+        // Helper: set element text content by ID (no-op if el not found)
+        const setText = (id, value) => {
+            const el = document.getElementById(id);
+            if (el && value !== null && value !== undefined) el.textContent = value;
+        };
+
+        // Helper: set width of a progress bar by ID, clamped 0–100%
+        const setWidth = (id, pct) => {
+            const el = document.getElementById(id);
+            if (el) el.style.width = Math.min(100, Math.max(0, Math.round(pct))) + '%';
+        };
+
+        // CORS proxy wrapper (AllOrigins) for endpoints that block direct browser access
+        const proxied = url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+
+        // ── LeetCode (alfa-leetcode-api — has Access-Control-Allow-Origin: *) ──
+        try {
+            const [solvedRes, contestRes] = await Promise.all([
+                fetch('https://alfa-leetcode-api.onrender.com/Kowshik_Kumar/solved'),
+                fetch('https://alfa-leetcode-api.onrender.com/Kowshik_Kumar/contest')
+            ]);
+
+            if (solvedRes.ok) {
+                const d = await solvedRes.json();
+                const total = d.solvedProblem ?? 0;
+                const easy  = d.easySolved   ?? 0;
+                const med   = d.mediumSolved  ?? 0;
+                const hard  = d.hardSolved    ?? 0;
+
+                setText('lc-total-solved', total);
+                setText('lc-easy',   easy);
+                setText('lc-medium', med);
+                setText('lc-hard',   hard);
+
+                if (total > 0) {
+                    setWidth('lc-easy-bar',   (easy / total) * 100);
+                    setWidth('lc-medium-bar', (med  / total) * 100);
+                    setWidth('lc-hard-bar',   (hard / total) * 100);
+                }
+            }
+
+            if (contestRes.ok) {
+                const d = await contestRes.json();
+                setText('lc-contests', d.contestAttend ?? 13);
+            }
+        } catch (err) {
+            console.warn('[CodingStats] LeetCode fetch failed:', err.message);
+        }
+
+        // ── HackerRank (via AllOrigins proxy) ──
+        try {
+            const hrUrl   = 'https://www.hackerrank.com/rest/hackers/kowshiii1208/badges';
+            const proxyRes = await fetch(proxied(hrUrl));
+            if (proxyRes.ok) {
+                const wrapper = await proxyRes.json();
+                const d = JSON.parse(wrapper.contents);
+
+                if (Array.isArray(d.models) && d.models.length > 0) {
+                    const totalStars  = d.models.reduce((acc, m) => acc + (m.stars  || 0), 0);
+                    const totalSolved = d.models.reduce((acc, m) => acc + (m.solved || 0), 0);
+
+                    setText('hr-total-stars', totalStars + '★');
+                    setText('hr-solved', totalSolved);
+
+                    const badge = type => d.models.find(m => m.badge_type === type);
+                    const maxStars = 5;
+
+                    const ps  = badge('problem-solving');
+                    const py  = badge('python');
+                    const cpp = badge('cpp');
+
+                    if (ps)  { setText('hr-ps-stars',  ps.stars  + '★'); setWidth('hr-ps-bar',  (ps.stars  / maxStars) * 100); }
+                    if (py)  { setText('hr-py-stars',  py.stars  + '★'); setWidth('hr-py-bar',  (py.stars  / maxStars) * 100); }
+                    if (cpp) { setText('hr-cpp-stars', cpp.stars + '★'); setWidth('hr-cpp-bar', (cpp.stars / maxStars) * 100); }
+                }
+            }
+        } catch (err) {
+            console.warn('[CodingStats] HackerRank fetch failed:', err.message);
+        }
+
+        // ── GeeksforGeeks (via AllOrigins proxy — may fail on Vercel endpoints) ──
+        try {
+            const gfgUrl  = 'https://gfgstatscard.vercel.app/kowshii6ran?raw=true';
+            const proxyRes = await fetch(proxied(gfgUrl));
+            if (proxyRes.ok) {
+                const wrapper = await proxyRes.json();
+                const d = JSON.parse(wrapper.contents);
+
+                const total  = d.total_problems_solved ?? 0;
+                const school = d.School ?? 0;
+                const basic  = d.Basic  ?? 0;
+                const easy   = (d.Easy  ?? 0) + school + basic; // group lower levels as Easy
+                const med    = d.Medium ?? 0;
+                const hard   = d.Hard   ?? 0;
+
+                setText('gfg-total-solved', total);
+                setText('gfg-easy',   easy);
+                setText('gfg-medium', med);
+                setText('gfg-hard',   hard);
+                setText('gfg-monthly', d.monthly_score ?? d.monthly_score ?? '--');
+                setText('gfg-score',   d.total_score   ?? '--');
+
+                if (total > 0) {
+                    setWidth('gfg-easy-bar',   (easy / total) * 100);
+                    setWidth('gfg-medium-bar', (med  / total) * 100);
+                    setWidth('gfg-hard-bar',   (hard / total) * 100);
+                }
+            }
+        } catch (err) {
+            console.warn('[CodingStats] GFG fetch failed:', err.message);
+        }
+
+        // ── CodeChef (via AllOrigins proxy) ──
+        try {
+            const ccUrl   = 'https://cp-rating-api.vercel.app/codechef/kowshiii_1208';
+            const proxyRes = await fetch(proxied(ccUrl));
+            if (proxyRes.ok) {
+                const wrapper = await proxyRes.json();
+                const d = JSON.parse(wrapper.contents);
+                setText('cc-contests', d.participation ?? 13);
+            }
+        } catch (err) {
+            console.warn('[CodingStats] CodeChef fetch failed:', err.message);
+        }
+    }
+
+    // Kick off stats update after a short delay to not block page interactivity
+    setTimeout(updateCodingStats, 800);
+
 });

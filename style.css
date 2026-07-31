@@ -1759,11 +1759,20 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.platform-logo img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
 }
 
 .platform-title h3 {
@@ -1798,6 +1807,40 @@ a {
     font-size: 0.85rem;
     color: var(--secondary-text);
 }
+
+/* Contests / score row between main stat and difficulty breakdown */
+.stat-sub {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.85rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    margin-top: -0.4rem;
+}
+
+.stat-sub .stat-sub-icon {
+    font-size: 0.9rem;
+    opacity: 0.65;
+}
+
+.stat-sub .stat-sub-label {
+    font-size: 0.78rem;
+    color: var(--secondary-text);
+    flex: 1;
+}
+
+.stat-sub .stat-sub-value {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--main-text);
+}
+
+.credential-card:has(.leetcode) .stat-sub  { border-color: rgba(255,161,22,0.15); }
+.credential-card:has(.codechef) .stat-sub  { border-color: rgba(91,70,54,0.25); }
+.credential-card:has(.hackerrank) .stat-sub { border-color: rgba(0,234,100,0.15); }
+.credential-card:has(.gfg) .stat-sub       { border-color: rgba(47,141,70,0.15); }
 
 .stat-breakdown-details {
     display: flex;

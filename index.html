@@ -459,11 +459,7 @@
                     <div class="credential-card card-glass" data-cursor="view">
                         <div class="platform-header">
                             <div class="platform-logo leetcode">
-                                <svg viewBox="0 0 95 111" width="28" height="28">
-                                    <path d="M68.0,84.0 L27.0,84.0 C23.7,84.0 21.0,81.3 21.0,78.0 C21.0,74.7 23.7,72.0 27.0,72.0 L68.0,72.0 C71.3,72.0 74.0,74.7 74.0,78.0 C74.0,81.3 71.3,84.0 68.0,84.0 Z" fill="#B3B3B3"/>
-                                    <path d="M38.0,55.6 L22.0,39.6 C19.5,37.1 19.5,33.0 22.0,30.5 C24.5,28.0 28.6,28.0 31.1,30.5 L43.7,43.1 L63.9,22.9 C66.4,20.4 70.5,20.4 73.0,22.9 C75.5,25.4 75.5,29.5 73.0,32.0 L48.4,55.6 C47.2,56.8 45.6,57.5 43.9,57.5 C42.3,57.5 40.7,56.8 39.5,55.6 Z" fill="#FFC01E"/>
-                                    <path d="M38.0,55.6 L22.0,39.6 C19.5,37.1 19.5,33.0 22.0,30.5 L30.5,39.0 L43.7,52.1 L68.3,27.5 C70.0,29.0 70.3,31.5 68.9,33.3 L48.4,55.6 C47.2,56.8 45.6,57.5 43.9,57.5 C42.3,57.5 40.7,56.8 39.5,55.6 Z" fill="#E5A118"/>
-                                </svg>
+                                <img src="media/Leetcode_Logo.webp" alt="LeetCode Logo" width="36" height="36">
                             </div>
                             <div class="platform-title">
                                 <h3>LeetCode</h3>
@@ -472,21 +468,26 @@
                         </div>
                         <div class="platform-stats">
                             <div class="stat-main">
-                                <span class="stat-value">100+</span>
+                                <span class="stat-value" id="lc-total-solved">173</span>
                                 <span class="stat-label">Problems Solved</span>
+                            </div>
+                            <div class="stat-sub">
+                                <i class="fa-solid fa-trophy stat-sub-icon"></i>
+                                <span class="stat-sub-label">Contests Attended</span>
+                                <span class="stat-sub-value" id="lc-contests">13</span>
                             </div>
                             <div class="stat-breakdown-details">
                                 <div class="breakdown-item">
-                                    <span class="lbl-easy"><span class="dot dot-easy"></span> Easy: 65</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-easy" style="width: 65%;"></div></div>
+                                    <span class="lbl-easy"><span class="dot dot-easy"></span> Easy: <span id="lc-easy">142</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-easy" id="lc-easy-bar" style="width: 82%;"></div></div>
                                 </div>
                                 <div class="breakdown-item">
-                                    <span class="lbl-medium"><span class="dot dot-medium"></span> Med: 32</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-medium" style="width: 32%;"></div></div>
+                                    <span class="lbl-medium"><span class="dot dot-medium"></span> Med: <span id="lc-medium">27</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-medium" id="lc-medium-bar" style="width: 16%;"></div></div>
                                 </div>
                                 <div class="breakdown-item">
-                                    <span class="lbl-hard"><span class="dot dot-hard"></span> Hard: 5</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-hard" style="width: 5%;"></div></div>
+                                    <span class="lbl-hard"><span class="dot dot-hard"></span> Hard: <span id="lc-hard">4</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-hard" id="lc-hard-bar" style="width: 2%;"></div></div>
                                 </div>
                             </div>
                         </div>
@@ -499,10 +500,7 @@
                     <div class="credential-card card-glass" data-cursor="view">
                         <div class="platform-header">
                             <div class="platform-logo codechef">
-                                <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="#5B4638" d="M11.257.004C5.979.086 1.002 4.37.082 9.575c-.511 2.907.085 5.957 1.638 8.434 1.536 2.452 3.99 4.265 6.734 5.075 2.833.837 5.938.568 8.594-.75 2.598-1.283 4.705-3.52 5.755-6.208.64-1.671.856-3.504.668-5.277-.198-1.877-.85-3.71-1.916-5.267C19.34 2.922 16.284.76 12.92.126A10.61 10.61 0 0 0 11.257.004zm.616 1.474c2.895.202 5.66 1.717 7.399 4.048 1.673 2.236 2.34 5.173 1.784 7.916-.574 2.872-2.43 5.44-4.963 6.884-2.466 1.41-5.525 1.726-8.225.844-2.617-.86-4.861-2.886-6.007-5.38-1.124-2.444-1.168-5.342-.106-7.82C2.875 5.407 5.35 3.279 8.2 2.365a9.11 9.11 0 0 1 3.673-.887z"/>
-                                    <path fill="#5B4638" d="M11.559 4.073c-.637.005-1.29.071-1.87.319-.554.233-.988.688-1.266 1.218-.48.918-.534 1.977-.484 2.99.02.406.06.813.132 1.213-.27.082-.554.14-.798.272-.51.274-.833.81-.93 1.37-.104.598.016 1.23.337 1.748.305.494.8.843 1.343 1.005a3.584 3.584 0 0 0-.092.826c.003.687.187 1.39.556 1.972.38.6.963 1.062 1.627 1.302.678.246 1.415.28 2.131.19.7-.088 1.392-.327 1.96-.746.57-.42.994-1.025 1.196-1.702.197-.658.172-1.37-.014-2.028a3.064 3.064 0 0 0 1.173-.965c.364-.51.55-1.138.523-1.762-.026-.592-.244-1.18-.638-1.624-.29-.327-.672-.564-1.083-.68.058-.369.09-.741.103-1.114.033-.98-.052-1.997-.482-2.892-.266-.554-.71-1.024-1.266-1.273-.513-.228-1.08-.301-1.638-.44z"/>
-                                </svg>
+                                <img src="media/CodeChef_logo.png" alt="CodeChef Logo" width="36" height="36">
                             </div>
                             <div class="platform-title">
                                 <h3>CodeChef</h3>
@@ -511,8 +509,13 @@
                         </div>
                         <div class="platform-stats">
                             <div class="stat-main">
-                                <span class="stat-value">900+</span>
+                                <span class="stat-value" id="cc-total-solved">900+</span>
                                 <span class="stat-label">Problems Solved</span>
+                            </div>
+                            <div class="stat-sub">
+                                <i class="fa-solid fa-trophy stat-sub-icon"></i>
+                                <span class="stat-sub-label">Contests Attended</span>
+                                <span class="stat-sub-value" id="cc-contests">13</span>
                             </div>
                             <div class="stat-breakdown-details">
                                 <div class="breakdown-item">
@@ -538,32 +541,35 @@
                     <div class="credential-card card-glass" data-cursor="view">
                         <div class="platform-header">
                             <div class="platform-logo hackerrank">
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="#00EA64" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm-.56 4.663c.051 0 .102.003.145.009.426.054.598.427.626.799.027.373-.071.768-.071.768s-.222 1.011-.296 1.482c-.046.299.009.4.009.4s.106.009.244-.017c1.215-.222 2.28-.152 3.166.376.886.528 1.393 1.474 1.393 2.655 0 .004 0 .009-.001.013-.008.492-.097.979-.273 1.443-.004.009.049.064.049.064s.445.563.558 1.15c.113.587-.05 1.116-.467 1.497-.418.381-1.065.526-1.769.418-.704-.108-1.411-.449-1.89-.953 0 0-.071-.077-.133-.058-.063.019-.076.116-.076.116l-.036 2.39c-.006.367-.161.673-.428.832-.134.079-.285.116-.44.108-.259-.013-.516-.157-.677-.437l-.009-.015-.008-.016c-.149-.301-.138-.659-.138-.659l.091-6.132c.003-.207.107-.391.272-.497.166-.105.373-.116.549-.029.177.087.3.264.315.454l.01.132v.01c.005.146.022.449.208.558.158.094.37.018.487-.048 1.073-.601 1.979-.568 2.548-.147.569.422.755 1.169.546 1.974-.209.805-.796 1.58-1.619 1.974-.386.183-.791.263-1.172.217-.382-.046-.726-.219-.977-.531 0 0-.04-.052-.078-.041-.039.011-.044.075-.044.075l-.012.833c-.004.231-.117.439-.304.564-.187.126-.424.147-.627.056-.203-.091-.349-.282-.378-.498l-.004-.033-.003-.034c-.014-.197-.013-.381-.013-.381l.009-.596s-.01-.09-.053-.113c-.044-.022-.106.028-.106.028-.533.441-1.176.686-1.82.686-.644 0-1.242-.239-1.663-.698-.421-.46-.593-1.113-.459-1.822.135-.709.563-1.397 1.175-1.883.612-.487 1.38-.748 2.133-.692.312.023.576.109.776.262 0 0 .065.05.104.033.04-.016.042-.083.042-.083l.01-.625c.003-.214.109-.407.278-.52a.686.686 0 0 1 .557-.083zm.122.87a.16.16 0 0 0-.08.022c-.044.028-.072.079-.073.133l-.01.625s-.002.37-.172.44c-.171.07-.397-.124-.397-.124-.152-.12-.371-.196-.628-.215-.621-.046-1.268.177-1.783.579-.515.402-.869.993-.983 1.6-.114.607.02 1.148.348 1.505.327.357.822.555 1.371.555.548 0 1.099-.212 1.56-.596 0 0 .36-.285.566-.167.205.117.198.501.198.501l-.009.596s-.001.18.011.356c.016.21.143.275.236.234.093-.04.157-.155.159-.302l.012-.833s.003-.27.213-.33c.21-.059.418.199.418.199.208.258.49.406.806.443.316.036.661-.031.996-.191.739-.352 1.263-1.061 1.452-1.796.189-.735.031-1.366-.445-1.726-.476-.36-1.267-.384-2.247.175-.185.104-.557.276-.807.127-.25-.149-.267-.539-.271-.702v-.007l-.01-.133c-.008-.09-.062-.167-.146-.208a.316.316 0 0 0-.252.013c-.09.057-.146.154-.148.258l-.091 6.132s-.012.323.106.567l.003.006.003.006c.108.19.29.301.482.311a.52.52 0 0 0 .276-.068c.189-.112.311-.34.315-.6l.036-2.39s.012-.311.245-.381c.233-.07.434.147.434.147.433.463 1.079.776 1.72.875.64.099 1.224-.034 1.598-.376.374-.341.518-.8.421-1.312-.097-.512-.507-1.032-.507-1.032s-.078-.089-.06-.138c.172-.444.258-.912.265-1.38v-.011c0-1.065-.461-1.9-1.254-2.375-.792-.475-1.774-.541-2.934-.328-.194.036-.449.042-.449.042s-.245.006-.274-.291c-.073-.46.293-1.451.293-1.451s.095-.376.069-.71c-.026-.335-.181-.579-.443-.614a.636.636 0 0 0-.088-.006z"/>
-                                </svg>
+                                <img src="media/HackerRank_Icon.png" alt="HackerRank Logo" width="36" height="36">
                             </div>
                             <div class="platform-title">
                                 <h3>HackerRank</h3>
-                                <span class="badge-mini rating-badge">5★ Problem Solving</span>
+                                <span class="badge-mini rating-badge">Multi-Domain Expert</span>
                             </div>
                         </div>
                         <div class="platform-stats">
                             <div class="stat-main">
-                                <span class="stat-value">@kowshiii1208</span>
-                                <span class="stat-label">HackerRank Username</span>
+                                <span class="stat-value" id="hr-total-stars">16★</span>
+                                <span class="stat-label">Total Stars Earned</span>
+                            </div>
+                            <div class="stat-sub">
+                                <i class="fa-solid fa-code stat-sub-icon"></i>
+                                <span class="stat-sub-label">Challenges Solved</span>
+                                <span class="stat-sub-value" id="hr-solved">65</span>
                             </div>
                             <div class="stat-breakdown-details">
                                 <div class="breakdown-item">
-                                    <span class="lbl-easy"><span class="dot dot-easy"></span> Problem Solving: 5 Stars</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-easy" style="width: 100%;"></div></div>
+                                    <span class="lbl-easy"><span class="dot dot-easy"></span> Problem Solving: <span id="hr-ps-stars">4★</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-easy" id="hr-ps-bar" style="width: 80%;"></div></div>
                                 </div>
                                 <div class="breakdown-item">
-                                    <span class="lbl-medium"><span class="dot dot-medium"></span> Python Basics: 5 Stars</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-medium" style="width: 100%;"></div></div>
+                                    <span class="lbl-medium"><span class="dot dot-medium"></span> Python: <span id="hr-py-stars">4★</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-medium" id="hr-py-bar" style="width: 80%;"></div></div>
                                 </div>
                                 <div class="breakdown-item">
-                                    <span class="lbl-hard"><span class="dot dot-hard"></span> C++: 5 Stars</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-hard" style="width: 100%;"></div></div>
+                                    <span class="lbl-hard"><span class="dot dot-hard"></span> C++: <span id="hr-cpp-stars">3★</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-hard" id="hr-cpp-bar" style="width: 60%;"></div></div>
                                 </div>
                             </div>
                         </div>
@@ -576,32 +582,35 @@
                     <div class="credential-card card-glass" data-cursor="view">
                         <div class="platform-header">
                             <div class="platform-logo gfg">
-                                <svg viewBox="0 0 24 24" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill="#2F8D46" d="M21.45 14.315c-.143.28-.334.532-.565.745-.487.458-1.16.7-1.93.7a2.97 2.97 0 0 1-2.143-.903c-.21-.215-.38-.47-.5-.763h-.005v.003c-.107-.268-.175-.567-.175-.903 0-.348.07-.655.185-.924h.004c.116-.298.292-.56.51-.78a2.95 2.95 0 0 1 2.124-.906c.405 0 .782.09 1.117.244l-.005-.003c.35.16.652.39.896.67l.003.004.5-.5c-.29-.33-.645-.594-1.052-.775l-.016-.006a3.44 3.44 0 0 0-1.443-.308 3.69 3.69 0 0 0-2.6 1.053c-.14.138-.268.29-.38.454h-.003v.003a3.49 3.49 0 0 0-.568 1.24l-.005.022a3.51 3.51 0 0 0-.063.659c0 .373.058.732.166 1.07l-.006-.024a3.49 3.49 0 0 0 .87 1.5c.7.694 1.657 1.123 2.712 1.123.56 0 1.09-.12 1.565-.33l-.022.009c.495-.22.912-.547 1.233-.95l.004-.006-.005-.005v-2.38h-2.93v.67h2.24v1.396zM2.55 14.315v1.366H4.8v-1.366H2.55zM11.998 3C6.48 3 2 7.48 2 12.998c0 5.52 4.48 10.002 9.998 10.002S22 18.517 22 12.998C22 7.48 17.517 3 11.998 3zM6.3 15.822H2.55v-2.137h1.02v1.466H6.3v.67zm5.22-3.47H8.23v.67h3.04c.13 0 .248.005.36.014l-.013-.001c.105.012.197.03.287.053l-.01-.003a1.7 1.7 0 0 1 1.09 1.617v.003c0 .243-.05.474-.14.685l.004-.012a1.7 1.7 0 0 1-.967.938l-.014.004c-.18.062-.39.098-.607.098l-.009-.001h-3.04v-.67h2.98c.047 0 .092.004.137.01l-.005-.001c.047.006.09.016.132.03l-.006-.002c.178.054.32.17.408.322l.002.003c.043.078.068.17.068.27 0 .003 0 .006-.001.01v-.001c-.007.35-.27.634-.607.672l-.004.001h-.053v.002H8.23v.67h3.29c.943-.004 1.71-.72 1.756-1.653v-.005c.002-.04.003-.086.003-.132 0-.56-.26-1.057-.667-1.387l-.003-.003a2.01 2.01 0 0 0-.39-.225c.147-.1.27-.225.365-.37l.003-.005c.14-.21.224-.47.224-.75 0-.003 0-.006-.001-.01v.001a1.715 1.715 0 0 0-1.514-1.703l-.008-.001a2.24 2.24 0 0 0-.29-.018H8.23v.67h3.04c.023 0 .045.001.067.002l-.003-.001c.3.024.534.27.534.574 0 .305-.234.55-.53.574l-.004.001H11.52z"/>
-                                </svg>
+                                <img src="media/GeeksForGeeks_logo.png" alt="GeeksForGeeks Logo" width="36" height="36">
                             </div>
                             <div class="platform-title">
                                 <h3>GeeksforGeeks</h3>
-                                <span class="badge-mini rating-badge">Score: 550+</span>
+                                <span class="badge-mini rating-badge">Score: <span id="gfg-score">321</span></span>
                             </div>
                         </div>
                         <div class="platform-stats">
                             <div class="stat-main">
-                                <span class="stat-value">200+</span>
+                                <span class="stat-value" id="gfg-total-solved">140</span>
                                 <span class="stat-label">Problems Solved</span>
+                            </div>
+                            <div class="stat-sub">
+                                <i class="fa-solid fa-fire stat-sub-icon"></i>
+                                <span class="stat-sub-label">Monthly Score</span>
+                                <span class="stat-sub-value" id="gfg-monthly">80</span>
                             </div>
                             <div class="stat-breakdown-details">
                                 <div class="breakdown-item">
-                                    <span class="lbl-easy"><span class="dot dot-easy"></span> Easy: 120</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-easy" style="width: 60%;"></div></div>
+                                    <span class="lbl-easy"><span class="dot dot-easy"></span> Easy: <span id="gfg-easy">116</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-easy" id="gfg-easy-bar" style="width: 83%;"></div></div>
                                 </div>
                                 <div class="breakdown-item">
-                                    <span class="lbl-medium"><span class="dot dot-medium"></span> Med: 70</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-medium" style="width: 35%;"></div></div>
+                                    <span class="lbl-medium"><span class="dot dot-medium"></span> Med: <span id="gfg-medium">23</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-medium" id="gfg-medium-bar" style="width: 16%;"></div></div>
                                 </div>
                                 <div class="breakdown-item">
-                                    <span class="lbl-hard"><span class="dot dot-hard"></span> Hard: 10</span>
-                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-hard" style="width: 5%;"></div></div>
+                                    <span class="lbl-hard"><span class="dot dot-hard"></span> Hard: <span id="gfg-hard">1</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-hard" id="gfg-hard-bar" style="width: 1%;"></div></div>
                                 </div>
                             </div>
                         </div>
@@ -612,6 +621,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- Achievements & Hackathons Section -->
         <section id="achievements" class="section achievements-section">
