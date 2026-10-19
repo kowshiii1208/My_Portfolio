@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 116" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cfYellow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F6C43D"/>
+      <stop offset="100%" stop-color="#FCD975"/>
+    </linearGradient>
+    <linearGradient id="cfBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1480C4"/>
+      <stop offset="100%" stop-color="#1C99D4"/>
+    </linearGradient>
+    <linearGradient id="cfRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B11E26"/>
+      <stop offset="100%" stop-color="#C21C24"/>
+    </linearGradient>
+  </defs>
+  <path d="M30.3,32.7H9c-5,0-9,4.1-9,9v64.7c0,5,4.1,9,9,9h21.3c5,0,9-4.1,9-9V41.7C39.4,36.7,35.3,32.7,30.3,32.7z" fill="url(#cfYellow)"/>
+  <path d="M84.6,0H63.3c-5,0-9,4.1-9,9v97.4c0,5,4.1,9,9,9h21.3c5,0,9-4.1,9-9V9C93.6,4.1,89.6,0,84.6,0z" fill="url(#cfBlue)"/>
+  <path d="M138.7,45.1h-21.3c-5,0-9,4.1-9,9v52.3c0,5,4.1,9,9,9h21.3c5,0,9-4.1,9-9V54.1C147.7,49.1,143.7,45.1,138.7,45.1z" fill="url(#cfRed)"/>
+</svg>

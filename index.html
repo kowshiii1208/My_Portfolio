@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Kowshik kumar Yanamala - Aspiring Full Stack Developer & Competitive Programmer. Showcase of projects like Echo Learn and Medicare Assistant, skills, education, and achievements.">
+    <meta name="description" content="Portfolio of Kowshik kumar Yanamala - Aspiring Full Stack Developer & Competitive Programmer. Showcase of projects like Echo Learn, Medicare Assistant, and Quiz Game System, skills, education, and achievements.">
     <title>Kowshik Kumar Yanamala | Aspiring Full Stack Developer</title>
     
     <!-- Google Fonts -->
@@ -14,8 +14,26 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Favicon & Theme -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#0B1120">
+
+    <!-- Open Graph / LinkedIn / WhatsApp Social Share Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kowshiii1208.github.io/My_Portfolio/">
+    <meta property="og:title" content="Kowshik Kumar Yanamala | Aspiring Full Stack Developer">
+    <meta property="og:description" content="Explore projects (EchoLearn, Medicare Assistant, Quiz Game System), competitive programming credentials (1,200+ solved), SIH hackathons, and certifications.">
+    <meta property="og:image" content="media/kowshik-kumar-image.jpeg">
+
+    <!-- Twitter Cards -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kowshiii1208.github.io/My_Portfolio/">
+    <meta property="twitter:title" content="Kowshik Kumar Yanamala | Aspiring Full Stack Developer">
+    <meta property="twitter:description" content="Explore projects, competitive programming credentials (1,200+ solved), and verified certifications.">
+    <meta property="twitter:image" content="media/kowshik-kumar-image.jpeg">
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2.5">
 </head>
 <body>
     <!-- Background Elements -->
@@ -42,6 +60,9 @@
             </ul>
 
             <div class="nav-right">
+                <button class="cmd-palette-trigger" id="cmdPaletteBtn" aria-label="Open Command Menu" title="Press Ctrl + K or Click">
+                    <i class="fa-solid fa-terminal"></i> <span class="cmd-shortcut">⌘K</span>
+                </button>
                 <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
                     <i class="fa-solid fa-moon icon-moon"></i>
                     <i class="fa-solid fa-sun icon-sun" style="display: none;"></i>
@@ -82,6 +103,14 @@
                             <span>Get in Touch</span>
                         </a>
                     </div>
+                    <div class="hero-email-quickcopy fade-in">
+                        <span class="quickcopy-label"><i class="fa-solid fa-bolt"></i> Direct Reach:</span>
+                        <button class="btn-copy-pill" id="heroCopyEmailBtn" title="Click to copy email address">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>kowshiii1208@gmail.com</span>
+                            <span class="copy-action-tag"><i class="fa-regular fa-copy"></i> Copy</span>
+                        </button>
+                    </div>
                     <div class="hero-socials fade-in">
                         <a href="https://github.com/kowshiii1208" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
                             <i class="fa-brands fa-github"></i>
@@ -94,6 +123,9 @@
                         </a>
                         <a href="https://www.codechef.com/users/kowshiii_1208" target="_blank" rel="noopener noreferrer" class="social-link" title="CodeChef">
                             <i class="fa-solid fa-trophy"></i>
+                        </a>
+                        <a href="https://codeforces.com/profile/kowshiii1208" target="_blank" rel="noopener noreferrer" class="social-link" title="Codeforces">
+                            <img src="media/Codeforces_logo.svg" alt="Codeforces" width="20" height="20">
                         </a>
                     </div>
                 </div>
@@ -316,10 +348,20 @@
                     <div class="title-bar"></div>
                 </div>
 
+                <!-- Project Filter Tabs -->
+                <div class="project-filter-tabs">
+                    <button class="filter-tab-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> All Projects (3)</button>
+                    <button class="filter-tab-btn" data-filter="fullstack"><i class="fa-solid fa-code"></i> Full Stack & AI (2)</button>
+                    <button class="filter-tab-btn" data-filter="systems"><i class="fa-solid fa-microchip"></i> C++ & Systems (1)</button>
+                </div>
+
                 <div class="projects-grid">
                     <!-- Project 1 -->
-                    <div class="project-card card-glass">
+                    <div class="project-card card-glass" data-category="fullstack">
                         <div class="project-img-wrapper">
+                            <div class="project-status-badge">
+                                <span class="live-status-pill"><span class="pulse-dot"></span> Live Demo</span>
+                            </div>
                             <img src="media/echolearn.png" alt="Echo Learn Platform Screenshot" class="project-img">
                             <div class="project-tags">
                                 <span class="tag">React 18</span>
@@ -340,13 +382,19 @@
                                 <a href="https://learn-buddy-core.lovable.app" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-secondary">
                                     <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
                                 </a>
+                                <button class="btn-project btn-project-deepdive" data-arch="echolearn" title="View System Architecture">
+                                    <i class="fa-solid fa-cubes-stacked"></i> Architecture
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="project-card card-glass">
+                    <div class="project-card card-glass" data-category="fullstack">
                         <div class="project-img-wrapper">
+                            <div class="project-status-badge">
+                                <span class="status-pill-private"><i class="fa-solid fa-shield-halved"></i> Internal Build</span>
+                            </div>
                             <img src="media/medicare-assistant.jpeg" alt="Medicare Assistant Screenshot" class="project-img">
                             <div class="project-tags">
                                 <span class="tag">React 18</span>
@@ -367,6 +415,42 @@
                                 <span class="btn-project btn-project-disabled">
                                     <i class="fa-solid fa-lock"></i> Demo Private
                                 </span>
+                                <button class="btn-project btn-project-deepdive" data-arch="medicare" title="View System Architecture">
+                                    <i class="fa-solid fa-cubes-stacked"></i> Architecture
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Quiz Game System -->
+                    <div class="project-card card-glass" data-category="systems">
+                        <div class="project-img-wrapper">
+                            <div class="project-status-badge">
+                                <span class="live-status-pill"><span class="pulse-dot"></span> Live on Vercel</span>
+                            </div>
+                            <img src="media/quiz-game-system.png" alt="Quiz Game System Screenshot" class="project-img">
+                            <div class="project-tags">
+                                <span class="tag">C++14 / OOP</span>
+                                <span class="tag">Web & Vercel</span>
+                                <span class="tag">Anti-Cheat</span>
+                                <span class="tag">Leaderboard</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Quiz Game System</h3>
+                            <p class="project-desc">
+                                A high-performance interactive examination & assessment platform built with robust C++ Object-Oriented architecture and deployed with a responsive web portal. Features candidate registration, live timers, anti-cheat detection, instant merit certificate generation, and persistent Hall of Fame leaderboards.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/kowshiii1208/Quiz_Game_System" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-primary">
+                                    <i class="fa-brands fa-github"></i> Source Code
+                                </a>
+                                <a href="https://quiz-game-system-eight.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-secondary">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                                </a>
+                                <button class="btn-project btn-project-deepdive" data-arch="quizgame" title="View System Architecture">
+                                    <i class="fa-solid fa-cubes-stacked"></i> Architecture
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -452,6 +536,49 @@
                     <span class="sub-title">Coding Profiles</span>
                     <h2 class="section-title">Coding Credentials</h2>
                     <div class="title-bar"></div>
+                </div>
+
+                <!-- Cumulative Coding Milestones Banner -->
+                <div class="coding-milestones-banner card-glass">
+                    <div class="milestone-item">
+                        <div class="milestone-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                        <div class="milestone-data">
+                            <div>
+                                <span class="milestone-number" data-target="1200">0</span><span class="milestone-plus">+</span>
+                            </div>
+                            <span class="milestone-label">Problems Solved</span>
+                        </div>
+                    </div>
+                    <div class="milestone-divider"></div>
+                    <div class="milestone-item">
+                        <div class="milestone-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="milestone-data">
+                            <div>
+                                <span class="milestone-number" data-target="15">0</span><span class="milestone-plus">+</span>
+                            </div>
+                            <span class="milestone-label">Contests Attended</span>
+                        </div>
+                    </div>
+                    <div class="milestone-divider"></div>
+                    <div class="milestone-item">
+                        <div class="milestone-icon"><i class="fa-solid fa-network-wired"></i></div>
+                        <div class="milestone-data">
+                            <div>
+                                <span class="milestone-number" data-target="5">0</span><span class="milestone-plus"> Active</span>
+                            </div>
+                            <span class="milestone-label">Coding Platforms</span>
+                        </div>
+                    </div>
+                    <div class="milestone-divider"></div>
+                    <div class="milestone-item">
+                        <div class="milestone-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="milestone-data">
+                            <div>
+                                <span class="milestone-number" data-target="97.8" data-decimal="1">0</span><span class="milestone-plus">%</span>
+                            </div>
+                            <span class="milestone-label">Academic Merit</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="credentials-grid">
@@ -618,6 +745,47 @@
                             <span>View Profile</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
                     </div>
+
+                    <!-- Codeforces Card -->
+                    <div class="credential-card card-glass" data-cursor="view">
+                        <div class="platform-header">
+                            <div class="platform-logo codeforces">
+                                <img src="media/Codeforces_logo.svg" alt="Codeforces Logo" width="36" height="36">
+                            </div>
+                            <div class="platform-title">
+                                <h3>Codeforces</h3>
+                                <span class="badge-mini rating-badge" id="cf-rank-badge">Active Coder</span>
+                            </div>
+                        </div>
+                        <div class="platform-stats">
+                            <div class="stat-main">
+                                <span class="stat-value" id="cf-total-solved">4</span>
+                                <span class="stat-label">Problems Solved</span>
+                            </div>
+                            <div class="stat-sub">
+                                <i class="fa-solid fa-trophy stat-sub-icon"></i>
+                                <span class="stat-sub-label">Max Problem Rating</span>
+                                <span class="stat-sub-value" id="cf-max-rating">1600</span>
+                            </div>
+                            <div class="stat-breakdown-details">
+                                <div class="breakdown-item">
+                                    <span class="lbl-easy"><span class="dot dot-easy"></span> 800 - 1000: <span id="cf-easy">3</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-easy" id="cf-easy-bar" style="width: 75%;"></div></div>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="lbl-medium"><span class="dot dot-medium"></span> 1100 - 1500: <span id="cf-medium">0</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-medium" id="cf-medium-bar" style="width: 0%;"></div></div>
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="lbl-hard"><span class="dot dot-hard"></span> 1600+: <span id="cf-hard">1</span></span>
+                                    <div class="mini-bar-bg"><div class="mini-bar-fill fill-hard" id="cf-hard-bar" style="width: 25%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://codeforces.com/profile/kowshiii1208" target="_blank" rel="noopener noreferrer" class="btn-platform">
+                            <span>View Profile</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -636,29 +804,57 @@
                 <div class="achievements-container">
                     <h3 class="subsection-title"><i class="fa-solid fa-trophy"></i> Hackathons</h3>
                     <div class="hackathons-grid-showcase">
-                        <!-- Hackathon 1 -->
+                        <!-- Hackathon 1: Smart India Hackathon 2026 -->
                         <div class="hackathon-showcase-card card-glass" data-cursor="open">
                             <div class="hack-card-header">
                                 <div class="hack-badge">
                                     <i class="fa-solid fa-award"></i>
-                                    <span>Finalist / Participant</span>
+                                    <span>Participant</span>
                                 </div>
-                                <span class="hack-date">2024</span>
+                                <span class="hack-date">Sep 2026</span>
                             </div>
                             <div class="hack-card-body">
-                                <h4>Smart India Hackathon (SIH)</h4>
-                                <p class="organizer">Ministry of Education, Government of India</p>
+                                <h4>Smart India Hackathon (SIH) 2026</h4>
+                                <p class="organizer">Aditya University (EDC & IIC) / Ministry of Education</p>
                                 <p class="participation-type"><i class="fa-solid fa-users"></i> Team Participation</p>
-                                <p class="description">Developed an innovative digital solution to address critical governance challenges posed by ministries, presenting a working prototype to national evaluators.</p>
+                                <p class="description">Participated in the university-level internal hackathon for Smart India Hackathon 2026, architecting and pitching a full-stack digital prototype designed to address national-scale governance challenges.</p>
                                 <div class="tech-tags">
-                                    <span>React</span>
-                                    <span>Node.js</span>
-                                    <span>Python</span>
-                                    <span>APIs</span>
+                                    <span>Full Stack</span>
+                                    <span>Prototyping</span>
+                                    <span>Problem Solving</span>
+                                    <span>Innovation</span>
                                 </div>
                             </div>
                             <div class="hack-card-footer">
-                                <button class="btn-preview-achievement" data-file="media/sih-hackathon.pdf" data-caption="Smart India Hackathon Finalist Certificate">
+                                <button class="btn-preview-achievement" data-file="media/sih-2026.png" data-pdf="media/sih-2026.pdf" data-caption="Smart India Hackathon 2026 Participation Certificate">
+                                    <i class="fa-solid fa-eye"></i> View Certificate
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Hackathon 2: Smart India Hackathon 2025 -->
+                        <div class="hackathon-showcase-card card-glass" data-cursor="open">
+                            <div class="hack-card-header">
+                                <div class="hack-badge">
+                                    <i class="fa-solid fa-award"></i>
+                                    <span>Participant</span>
+                                </div>
+                                <span class="hack-date">Sep 2025</span>
+                            </div>
+                            <div class="hack-card-body">
+                                <h4>Smart India Hackathon (SIH) 2025</h4>
+                                <p class="organizer">Aditya University (EDC & IIC) / Ministry of Education</p>
+                                <p class="participation-type"><i class="fa-solid fa-users"></i> Team ClassSync</p>
+                                <p class="description">Competed in the internal hackathon for SIH-2K25 with Team ClassSync, designing and pitching an educational collaboration platform to national evaluators.</p>
+                                <div class="tech-tags">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>APIs</span>
+                                    <span>Team Collaboration</span>
+                                </div>
+                            </div>
+                            <div class="hack-card-footer">
+                                <button class="btn-preview-achievement" data-file="media/sih-hackathon.png" data-pdf="media/sih-hackathon.pdf" data-caption="Smart India Hackathon 2025 Participation Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -738,7 +934,7 @@
                                 </div>
                             </div>
                             <div class="cert-action-new">
-                                <button class="btn-preview-achievement" data-file="media/python-essentials-1-certificate.pdf" data-caption="Python Essentials 1 Certificate">
+                                <button class="btn-preview-achievement" data-file="media/python-essentials-1-certificate.png" data-pdf="media/python-essentials-1-certificate.pdf" data-caption="Python Essentials 1 Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -757,7 +953,45 @@
                                 </div>
                             </div>
                             <div class="cert-action-new">
-                                <button class="btn-preview-achievement" data-file="media/c-essentials-1-certificate.pdf" data-caption="C Essentials 1 Certificate">
+                                <button class="btn-preview-achievement" data-file="media/c-essentials-1-certificate.png" data-pdf="media/c-essentials-1-certificate.pdf" data-caption="C Essentials 1 Certificate">
+                                    <i class="fa-solid fa-eye"></i> View Certificate
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Cert 3: Cisco Introduction to Data Science -->
+                        <div class="cert-showcase-card card-glass" data-cursor="open">
+                            <div class="cert-icon-wrapper-new cisco-cert">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div class="cert-body-new">
+                                <h4>Introduction to Data Science</h4>
+                                <p class="issuer">Cisco Networking Academy</p>
+                                <div class="cert-bottom-info">
+                                    <span class="badge-mini verification-badge"><i class="fa-solid fa-check-double"></i> Verified Credential</span>
+                                </div>
+                            </div>
+                            <div class="cert-action-new">
+                                <button class="btn-preview-achievement" data-file="media/cisco-intro-data-science-certificate.png" data-pdf="media/cisco-intro-data-science-certificate.pdf" data-caption="Cisco Introduction to Data Science Certificate">
+                                    <i class="fa-solid fa-eye"></i> View Certificate
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Cert 4: Oracle Academy Database Foundations (DBMS) -->
+                        <div class="cert-showcase-card card-glass" data-cursor="open">
+                            <div class="cert-icon-wrapper-new oracle-cert">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div class="cert-body-new">
+                                <h4>Database Foundations (DBMS)</h4>
+                                <p class="issuer">Oracle Academy</p>
+                                <div class="cert-bottom-info">
+                                    <span class="badge-mini verification-badge"><i class="fa-solid fa-check-double"></i> Verified Credential</span>
+                                </div>
+                            </div>
+                            <div class="cert-action-new">
+                                <button class="btn-preview-achievement" data-file="media/oracle-database-foundations-certificate.png" data-pdf="media/oracle-database-foundations-certificate.pdf" data-caption="Oracle Academy — Database Foundations (DBMS) Certificate">
                                     <i class="fa-solid fa-eye"></i> View Certificate
                                 </button>
                             </div>
@@ -791,7 +1025,12 @@
                                 </div>
                                 <div class="method-details">
                                     <span>Email me</span>
-                                    <a href="mailto:kowshiii1208@gmail.com">kowshiii1208@gmail.com</a>
+                                    <div class="email-copy-row">
+                                        <a href="mailto:kowshiii1208@gmail.com">kowshiii1208@gmail.com</a>
+                                        <button class="btn-inline-copy" id="contactCopyEmailBtn" title="Copy email address" aria-label="Copy email">
+                                            <i class="fa-regular fa-copy"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -834,6 +1073,10 @@
                                 <a href="https://www.codechef.com/users/kowshiii_1208" target="_blank" rel="noopener noreferrer" class="channel-card">
                                     <i class="fa-solid fa-trophy"></i>
                                     <span>CodeChef</span>
+                                </a>
+                                <a href="https://codeforces.com/profile/kowshiii1208" target="_blank" rel="noopener noreferrer" class="channel-card">
+                                    <img src="media/Codeforces_logo.svg" alt="Codeforces" width="16" height="16">
+                                    <span>Codeforces</span>
                                 </a>
                             </div>
                         </div>
@@ -978,6 +1221,8 @@
                             <div class="resume-section">
                                 <h3 class="resume-section-title">Certifications</h3>
                                 <ul class="resume-list">
+                                    <li>Database Foundations (DBMS) — Oracle Academy</li>
+                                    <li>Introduction to Data Science — Cisco Networking Academy</li>
                                     <li>Python Essentials 1 — Cisco Networking Academy</li>
                                     <li>C Essentials 1 — Cisco Networking Academy</li>
                                     <li>MS-OFFICE — Sri Muppavarapu Foundation, Nellore</li>
@@ -1023,15 +1268,28 @@
                                         <li>Built responsive, accessible UI to ensure ease of use for elderly users.</li>
                                     </ul>
                                 </div>
+                                
+                                <div class="resume-item">
+                                    <div class="resume-item-header">
+                                        <span>Quiz Game System — C++ & OOP Assessment Platform</span>
+                                    </div>
+                                    <div class="resume-item-sub">C++14, OOP Design Patterns, Vercel Web Deployment</div>
+                                    <ul class="resume-list">
+                                        <li>Engineered an interactive examination system featuring candidate registration, custom ID pass generation, and timed MCQs on core OOP principles.</li>
+                                        <li>Implemented real-time scoring analytics, Honors badges, anti-cheat mechanisms, persistent leaderboard rankings, and automated certificate generation.</li>
+                                    </ul>
+                                </div>
                             </div>
                             
                             <!-- Achievements -->
                             <div class="resume-section">
                                 <h3 class="resume-section-title">Achievements & Competitive Programming</h3>
                                 <ul class="resume-list">
-                                    <li>Solved 100+ problems on LeetCode demonstrating strong algorithmic skills.</li>
+                                    <li>Participant in 2× Smart India Hackathon (SIH 2026 & SIH 2025), HackSprint 2K25, and IEEE YESSIST 12.</li>
+                                    <li>Solved 170+ problems on LeetCode demonstrating strong algorithmic skills.</li>
                                     <li>Solved 900+ problems on CodeChef with consistent practice.</li>
-                                    <li>Attended 15+ coding contests in LEETCODE and CODECHEF.</li>
+                                    <li>Active on Codeforces solving greedy, math, and dynamic programming challenges.</li>
+                                    <li>Attended 15+ coding contests across LeetCode, CodeChef, and Codeforces.</li>
                                     <li>Active on HackerRank with proficiency in Python and C++.</li>
                                 </ul>
                             </div>
@@ -1052,7 +1310,42 @@
     <div class="custom-cursor-ring" id="cursorRing"></div>
     <div class="custom-cursor-label" id="cursorLabel"></div>
 
+    <!-- Command Palette (Ctrl + K / Cmd + K) -->
+    <div id="cmdPaletteModal" class="cmd-modal-overlay">
+        <div class="cmd-palette card-glass" role="dialog" aria-modal="true" aria-label="Command Palette">
+            <div class="cmd-search-wrapper">
+                <i class="fa-solid fa-magnifying-glass cmd-search-icon"></i>
+                <input type="text" id="cmdInput" placeholder="Type to search sections, projects, profiles, actions..." autocomplete="off" spellcheck="false">
+                <span class="cmd-kbd-badge">ESC</span>
+            </div>
+            <div class="cmd-results" id="cmdResults">
+                <!-- Populated dynamically by script.js -->
+            </div>
+            <div class="cmd-footer">
+                <span><kbd>↑</kbd> <kbd>↓</kbd> navigate</span>
+                <span><kbd>↵</kbd> select</span>
+                <span><kbd>esc</kbd> close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Architecture Deep-Dive Modal -->
+    <div id="projectArchModal" class="modal-container">
+        <span class="modal-close" id="archModalClose">&times;</span>
+        <div class="modal-body-container">
+            <div class="arch-modal-sheet" id="archModalContent">
+                <!-- Content loaded dynamically based on project -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div id="toastNotification" class="toast-notification">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toastMessage" class="toast-msg">Copied to clipboard!</span>
+    </div>
+
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="script.js?v=2.5"></script>
 </body>
 </html>
