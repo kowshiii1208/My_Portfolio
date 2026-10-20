@@ -16,6 +16,10 @@
     
     <!-- Favicon & Theme -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="canonical" href="https://kowshiii1208.github.io/My_Portfolio/">
+    <meta name="author" content="Kowshik Kumar Yanamala">
+    <meta name="keywords" content="Kowshik Kumar Yanamala, Full Stack Developer, React, Next.js, TypeScript, C++, Python, Competitive Programming, LeetCode, CodeChef, EchoLearn, Quiz Game System, Medicare Assistant">
     <meta name="theme-color" content="#0B1120">
 
     <!-- Open Graph / LinkedIn / WhatsApp Social Share Cards -->
@@ -33,7 +37,7 @@
     <meta property="twitter:image" content="media/kowshik-kumar-image.jpeg">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=2.5">
+    <link rel="stylesheet" href="style.css?v=2.6">
 </head>
 <body>
     <!-- Background Elements -->
@@ -99,6 +103,9 @@
                         <a href="#projects" class="btn btn-primary">
                             <span>View Projects</span> <i class="fa-solid fa-arrow-right"></i>
                         </a>
+                        <button class="btn btn-secondary hero-resume-btn" id="heroResumeBtn" title="View & Download Resume">
+                            <i class="fa-solid fa-file-pdf"></i> <span>Resume</span>
+                        </button>
                         <a href="#contact" class="btn btn-secondary">
                             <span>Get in Touch</span>
                         </a>
@@ -192,10 +199,13 @@
                         </div>
                         
                         <!-- Resume Action Button -->
-                        <div class="about-resume-action" style="margin-top: 2rem;">
+                        <div class="about-resume-action" style="margin-top: 2rem; display: flex; gap: 12px; flex-wrap: wrap;">
                             <button class="btn btn-primary" id="aboutResumeBtn">
-                                <i class="fa-solid fa-file-invoice"></i> <span>View Full Resume</span>
+                                <i class="fa-solid fa-file-invoice"></i> <span>View Interactive Resume</span>
                             </button>
+                            <a href="media/kowshik-kumar-resume.pdf" class="btn btn-secondary" download="Kowshik_Kumar_Resume.pdf" title="Download ATS PDF format">
+                                <i class="fa-solid fa-file-pdf"></i> <span>Download PDF</span>
+                            </a>
                         </div>
                     </div>
 
@@ -412,9 +422,9 @@
                                 <a href="https://github.com/kowshiii1208" target="_blank" rel="noopener noreferrer" class="btn-project btn-project-primary">
                                     <i class="fa-brands fa-github"></i> Profile
                                 </a>
-                                <span class="btn-project btn-project-disabled">
-                                    <i class="fa-solid fa-lock"></i> Demo Private
-                                </span>
+                                <button class="btn-project btn-project-walkthrough" id="medicareTourBtn" title="Explore Interactive Product Walkthrough & Sandbox">
+                                    <i class="fa-solid fa-circle-play"></i> Product Tour
+                                </button>
                                 <button class="btn-project btn-project-deepdive" data-arch="medicare" title="View System Architecture">
                                     <i class="fa-solid fa-cubes-stacked"></i> Architecture
                                 </button>
@@ -1151,9 +1161,17 @@
             <div class="resume-wrapper">
                 <div class="resume-header-actions">
                     <h2>Interactive Resume</h2>
-                    <a href="media/kowshik-kumar-resume.docx" class="btn btn-primary" download>
-                        <i class="fa-solid fa-download"></i> Download DOCX
-                    </a>
+                    <div class="resume-btn-group">
+                        <a href="media/kowshik-kumar-resume.pdf" class="btn btn-primary" download="Kowshik_Kumar_Resume.pdf" title="Download ATS PDF format">
+                            <i class="fa-solid fa-file-pdf"></i> Download PDF
+                        </a>
+                        <a href="media/kowshik-kumar-resume.docx" class="btn btn-secondary" download="Kowshik_Kumar_Resume.docx" title="Download Editable Word Document">
+                            <i class="fa-solid fa-file-word"></i> Download DOCX
+                        </a>
+                        <button class="btn btn-secondary" id="resumePrintBtn" title="Print or Save to PDF">
+                            <i class="fa-solid fa-print"></i> Print
+                        </button>
+                    </div>
                 </div>
                 
                 <!-- Real Resume Sheet -->
@@ -1339,6 +1357,212 @@
         </div>
     </div>
 
+    <!-- Medicare Assistant Walkthrough & Interactive Sandbox Modal -->
+    <div id="medicareTourModal" class="modal-container">
+        <span class="modal-close" id="medicareTourClose">&times;</span>
+        <div class="modal-body-container">
+            <div class="tour-modal-sheet">
+                <!-- Tour Header -->
+                <div class="tour-header">
+                    <div class="tour-header-left">
+                        <div class="tour-app-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div>
+                            <div class="tour-badge-row">
+                                <span class="badge-mini rating-badge">Interactive Product Tour</span>
+                                <span class="badge-mini verification-badge"><i class="fa-solid fa-shield-halved"></i> HIPAA-Conscious AI</span>
+                            </div>
+                            <h3 class="tour-title">Medicare Assistant</h3>
+                            <p class="tour-sub">AI Healthcare Navigation & Plan Advisory System for Seniors</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Tab Controls -->
+                <div class="tour-tab-nav">
+                    <button class="tour-tab-btn active" data-tour-tab="simulation">
+                        <i class="fa-solid fa-comments"></i> <span>Live Query Simulator</span>
+                    </button>
+                    <button class="tour-tab-btn" data-tour-tab="plans">
+                        <i class="fa-solid fa-table-list"></i> <span>Plan Matrix (A, B, C, D)</span>
+                    </button>
+                    <button class="tour-tab-btn" data-tour-tab="accessibility">
+                        <i class="fa-solid fa-universal-access"></i> <span>Senior UX Innovations</span>
+                    </button>
+                    <button class="tour-tab-btn" data-tour-tab="tech">
+                        <i class="fa-solid fa-microchip"></i> <span>Architecture & Security</span>
+                    </button>
+                </div>
+
+                <!-- Tab 1: Live Simulation -->
+                <div class="tour-tab-pane active" id="tourPaneSimulation">
+                    <div class="tour-sim-wrapper">
+                        <p class="tour-sim-hint">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Try it live:</strong> Click any senior question below or type your own to see how Medicare Assistant triages coverage, copays, and eligibility:
+                        </p>
+                        <div class="tour-prompts-carousel">
+                            <button class="tour-prompt-chip active" data-query="cataract">
+                                <span>👓 Cataract Surgery & Glasses</span>
+                            </button>
+                            <button class="tour-prompt-chip" data-query="turning65">
+                                <span>🎂 Turning 65 Enrollment</span>
+                            </button>
+                            <button class="tour-prompt-chip" data-query="rxmeds">
+                                <span>💊 Part D Rx & 2026 Caps</span>
+                            </button>
+                            <button class="tour-prompt-chip" data-query="travel">
+                                <span>✈️ Advantage vs Medigap</span>
+                            </button>
+                        </div>
+
+                        <!-- Simulated Chat Window -->
+                        <div class="tour-chat-window card-glass">
+                            <div class="tour-chat-header">
+                                <div class="chat-header-dot online"></div>
+                                <span>Medicare Assistant AI (Triage Engine v2.4)</span>
+                                <span class="chat-wcag-tag"><i class="fa-solid fa-eye"></i> WCAG AAA Contrast</span>
+                            </div>
+                            <div class="tour-chat-messages" id="tourChatMessages">
+                                <!-- Populated dynamically by script.js -->
+                            </div>
+                            <form class="tour-chat-input-row" id="tourChatForm">
+                                <input type="text" id="tourChatInput" placeholder="Ask about Medicare coverage, deductibles, doctors..." autocomplete="off">
+                                <button type="submit" class="btn-tour-send" aria-label="Send query">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Plan Matrix -->
+                <div class="tour-tab-pane" id="tourPanePlans">
+                    <div class="plans-matrix-grid">
+                        <div class="plan-card card-glass">
+                            <div class="plan-card-header">
+                                <span class="plan-tag tag-part-a">Part A</span>
+                                <h4>Hospital Insurance</h4>
+                            </div>
+                            <p class="plan-card-price"><strong>$0/mo</strong> for most Americans (40+ quarters worked)</p>
+                            <ul class="plan-features">
+                                <li><i class="fa-solid fa-check"></i> Inpatient hospital stays & surgical care</li>
+                                <li><i class="fa-solid fa-check"></i> Skilled nursing facility care (up to 100 days)</li>
+                                <li><i class="fa-solid fa-check"></i> Hospice care & home health services</li>
+                                <li class="plan-deductible"><strong>2026 Deductible:</strong> $1,676 per benefit period</li>
+                            </ul>
+                        </div>
+
+                        <div class="plan-card card-glass">
+                            <div class="plan-card-header">
+                                <span class="plan-tag tag-part-b">Part B</span>
+                                <h4>Medical Insurance</h4>
+                            </div>
+                            <p class="plan-card-price"><strong>Standard: ~$185/mo</strong> (income-based IRMAA)</p>
+                            <ul class="plan-features">
+                                <li><i class="fa-solid fa-check"></i> Doctor visits & specialist outpatient care</li>
+                                <li><i class="fa-solid fa-check"></i> Preventive screenings & wellness checkups</li>
+                                <li><i class="fa-solid fa-check"></i> Durable medical equipment (wheelchairs, CPAP)</li>
+                                <li class="plan-deductible"><strong>Coverage:</strong> Medicare pays 80%, you pay 20% co-insurance</li>
+                            </ul>
+                        </div>
+
+                        <div class="plan-card card-glass">
+                            <div class="plan-card-header">
+                                <span class="plan-tag tag-part-c">Part C (Advantage)</span>
+                                <h4>Bundled Private Plans</h4>
+                            </div>
+                            <p class="plan-card-price"><strong>$0 to low monthly</strong> additional premium</p>
+                            <ul class="plan-features">
+                                <li><i class="fa-solid fa-check"></i> Bundles Part A + Part B + Part D Rx</li>
+                                <li><i class="fa-solid fa-check"></i> Often includes dental, vision & hearing benefits</li>
+                                <li><i class="fa-solid fa-check"></i> Maximum out-of-pocket spending limits protected</li>
+                                <li class="plan-deductible"><strong>Trade-off:</strong> Restricted provider HMO/PPO network</li>
+                            </ul>
+                        </div>
+
+                        <div class="plan-card card-glass">
+                            <div class="plan-card-header">
+                                <span class="plan-tag tag-part-d">Part D</span>
+                                <h4>Prescription Drugs</h4>
+                            </div>
+                            <p class="plan-card-price"><strong>Plan-specific</strong> (averages ~$35–$50/mo)</p>
+                            <ul class="plan-features">
+                                <li><i class="fa-solid fa-check"></i> Outpatient prescription medication formulary</li>
+                                <li><i class="fa-solid fa-check"></i> Insulin co-pays capped at $35/month</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>$2,000 Out-of-Pocket Cap:</strong> Caps max annual drug spend</li>
+                                <li class="plan-deductible"><strong>Tiers:</strong> Generics (Tier 1) to Specialty (Tier 5)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Senior UX Innovations -->
+                <div class="tour-tab-pane" id="tourPaneAccessibility">
+                    <div class="tour-ux-grid">
+                        <div class="ux-feature-card card-glass">
+                            <div class="ux-icon"><i class="fa-solid fa-text-height"></i></div>
+                            <h4>18px+ Scalable Font System</h4>
+                            <p>Default body size engineered for presbyopic vision. Supports up to 200% browser zoom without broken wrapping or horizontal scrolls.</p>
+                        </div>
+                        <div class="ux-feature-card card-glass">
+                            <div class="ux-icon"><i class="fa-solid fa-circle-half-stroke"></i></div>
+                            <h4>7:1 Contrast Ratio (WCAG AAA)</h4>
+                            <p>Exceeds standard 4.5:1 web contrast thresholds to guarantee legible reading in low-light and high-glare environments.</p>
+                        </div>
+                        <div class="ux-feature-card card-glass">
+                            <div class="ux-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                            <h4>Voice & Dictation Ready</h4>
+                            <p>Equipped with Speech-to-Text and Text-to-Speech audio synthesizer for seniors with motor arthritis or visual impairments.</p>
+                        </div>
+                        <div class="ux-feature-card card-glass">
+                            <div class="ux-icon"><i class="fa-solid fa-brain"></i></div>
+                            <h4>Zero-Jargon Explanations</h4>
+                            <p>Translates complex CMS regulatory jargon (e.g., "formulary tiers", "benefit period", "IRMAA") into simple everyday examples.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Architecture & Security -->
+                <div class="tour-tab-pane" id="tourPaneTech">
+                    <div class="tour-tech-wrapper card-glass">
+                        <div class="tour-tech-item">
+                            <div class="tour-tech-badge">Frontend</div>
+                            <div>
+                                <h5>React 18 + TypeScript + Vite + Tailwind CSS</h5>
+                                <p>Ultra-fast client bundle (<45KB initial gzipped payload) rendering instant interactive triage trees with zero latency.</p>
+                            </div>
+                        </div>
+                        <div class="tour-tech-item">
+                            <div class="tour-tech-badge">Backend</div>
+                            <div>
+                                <h5>Supabase (PostgreSQL) + Edge Functions</h5>
+                                <p>Managed authentication, real-time encrypted data sync, and session audit logs without storing personally identifiable health information (PHI).</p>
+                            </div>
+                        </div>
+                        <div class="tour-tech-item">
+                            <div class="tour-tech-badge">AI Core</div>
+                            <div>
+                                <h5>Context-Window Optimization & Triage Routing</h5>
+                                <p>Deterministic policy matching for government plan rules combined with LLM natural language generation for empathy-driven senior interactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Footer Actions -->
+                <div class="tour-footer">
+                    <button class="btn btn-primary" id="tourRequestAccessBtn">
+                        <i class="fa-solid fa-envelope-open-text"></i> Request Sandbox Demo Access
+                    </button>
+                    <button class="btn btn-secondary" id="tourDeepDiveArchBtn">
+                        <i class="fa-solid fa-cubes-stacked"></i> View Architecture Diagram
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Global Toast Notification -->
     <div id="toastNotification" class="toast-notification">
         <i class="fa-solid fa-circle-check toast-icon"></i>
@@ -1346,6 +1570,6 @@
     </div>
 
     <!-- Custom JS -->
-    <script src="script.js?v=2.5"></script>
+    <script src="script.js?v=2.6"></script>
 </body>
 </html>

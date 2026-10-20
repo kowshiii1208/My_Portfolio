@@ -249,26 +249,39 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const resumeModal = document.getElementById('resumeModal');
     const resumeModalClose = document.getElementById('resumeModalClose');
-    const aboutResumeBtn = document.getElementById('aboutResumeBtn');
-    
-    if (aboutResumeBtn && resumeModal) {
-        aboutResumeBtn.addEventListener('click', (e) => {
+    const resumeTriggers = document.querySelectorAll('#aboutResumeBtn, #heroResumeBtn, [data-open-resume]');
+    const resumePrintBtn = document.getElementById('resumePrintBtn');
+
+    function openResumeModal() {
+        if (!resumeModal) return;
+        resumeModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    resumeTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-            resumeModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            openResumeModal();
+        });
+    });
+
+    if (resumePrintBtn) {
+        resumePrintBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.print();
         });
     }
-    
+
     function closeResumeModal() {
         if (!resumeModal) return;
         resumeModal.style.display = 'none';
         document.body.style.overflow = '';
     }
-    
+
     if (resumeModalClose) {
         resumeModalClose.addEventListener('click', closeResumeModal);
     }
-    
+
     if (resumeModal) {
         resumeModal.addEventListener('click', (e) => {
             if (e.target === resumeModal || e.target.closest('.modal-body-container') === null) {
@@ -1078,7 +1091,186 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Interactive Command Palette (Ctrl + K)
+    // 6. Medicare Product Tour & Interactive Sandbox
+    const medicareTourModal = document.getElementById('medicareTourModal');
+    const medicareTourBtn = document.getElementById('medicareTourBtn');
+    const medicareTourClose = document.getElementById('medicareTourClose');
+    const tourTabBtns = document.querySelectorAll('.tour-tab-btn');
+    const tourTabPanes = document.querySelectorAll('.tour-tab-pane');
+    const tourPromptChips = document.querySelectorAll('.tour-prompt-chip');
+    const tourChatMessages = document.getElementById('tourChatMessages');
+    const tourChatForm = document.getElementById('tourChatForm');
+    const tourChatInput = document.getElementById('tourChatInput');
+    const tourRequestAccessBtn = document.getElementById('tourRequestAccessBtn');
+    const tourDeepDiveArchBtn = document.getElementById('tourDeepDiveArchBtn');
+
+    const medicareKnowledge = {
+        cataract: {
+            user: "Does Original Medicare cover cataract surgery, prescription lenses, and postoperative care?",
+            assistant: "<strong>Yes, with specific coverage rules:</strong><br><br>Medicare <strong>Part B</strong> covers conventional cataract surgery when using standard monofocal intraocular lenses (IOLs). Medicare pays <strong>80%</strong> of the Medicare-approved amount after your Part B annual deductible; you pay the remaining <strong>20% co-insurance</strong>.<br><br><strong>Bonus Benefit:</strong> Following cataract surgery with an IOL, Medicare Part B will pay for <strong>one pair of standard eyeglasses</strong> with basic frames or one set of contact lenses."
+        },
+        turning65: {
+            user: "I am turning 65 soon. What is my Initial Enrollment Period (IEP) and will I get penalty fees if I delay?",
+            assistant: "<strong>Here is your exact 7-month enrollment timeline:</strong><br><br>Your <strong>Initial Enrollment Period (IEP)</strong> begins 3 months before your 65th birthday month, includes your birthday month, and ends 3 months after (7 total months).<br><br><strong>Late Penalties:</strong> If you miss IEP and don't have creditable employer group coverage, you face a permanent <strong>10% Part B premium penalty</strong> for every full 12-month period you were eligible but delayed."
+        },
+        rxmeds: {
+            user: "How does Part D drug coverage work in 2026? What is the annual out-of-pocket maximum?",
+            assistant: "<strong>Major 2025–2026 Medicare Part D Reforms:</strong><br><br><ul><li><strong>$2,000 Out-of-Pocket Cap:</strong> The dreaded 'Donut Hole' (coverage gap) is fully eliminated! You will never pay more than $2,000 out-of-pocket per calendar year for covered formulary medications.</li><li><strong>$35 Insulin Cap:</strong> All covered insulin prescriptions are capped at $35/month with zero deductible.</li><li><strong>Medicare Prescription Payment Plan:</strong> Option to spread drug costs across equal monthly installments.</li></ul>"
+        },
+        travel: {
+            user: "I travel across different states frequently. Should I pick Medicare Advantage (Part C) or Original Medicare + Medigap?",
+            assistant: "<strong>For active nationwide travelers, Original Medicare + Medigap is overwhelmingly recommended:</strong><br><br><ul><li><strong>Original Medicare + Medigap:</strong> Gives you unrestricted access to any doctor, clinic, or hospital across all 50 U.S. states that accepts Medicare (~93% of U.S. doctors). No network restrictions, no referrals needed.</li><li><strong>Medicare Advantage (Part C):</strong> Operates on localized HMO/PPO networks. Outside your home service area, non-emergency care is often completely uncovered or incurs heavy out-of-network fees.</li></ul>"
+        }
+    };
+
+    function renderTourChatMessage(userText, assistantHtml) {
+        if (!tourChatMessages) return;
+        tourChatMessages.innerHTML = `
+            <div class="chat-bubble user">
+                <i class="fa-regular fa-user" style="margin-right: 6px;"></i> ${userText}
+            </div>
+            <div class="chat-bubble assistant">
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-weight: 700; color: var(--secondary-accent);">
+                    <i class="fa-solid fa-heart-pulse"></i> Medicare Assistant AI:
+                </div>
+                ${assistantHtml}
+            </div>
+        `;
+        tourChatMessages.scrollTop = tourChatMessages.scrollHeight;
+    }
+
+    function openMedicareTour(initialQuery = 'cataract') {
+        if (!medicareTourModal) return;
+        medicareTourModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        
+        const data = medicareKnowledge[initialQuery] || medicareKnowledge.cataract;
+        renderTourChatMessage(data.user, data.assistant);
+        
+        tourPromptChips.forEach(chip => {
+            chip.classList.toggle('active', chip.getAttribute('data-query') === initialQuery);
+        });
+    }
+
+    function closeMedicareTour() {
+        if (!medicareTourModal) return;
+        medicareTourModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    if (medicareTourBtn) {
+        medicareTourBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openMedicareTour('cataract');
+        });
+    }
+
+    if (medicareTourClose) {
+        medicareTourClose.addEventListener('click', closeMedicareTour);
+    }
+
+    if (medicareTourModal) {
+        medicareTourModal.addEventListener('click', (e) => {
+            if (e.target === medicareTourModal || e.target.closest('.tour-modal-sheet') === null) {
+                closeMedicareTour();
+            }
+        });
+    }
+
+    tourTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tourTabBtns.forEach(b => b.classList.remove('active'));
+            tourTabPanes.forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            const tabName = btn.getAttribute('data-tour-tab');
+            const targetId = 'tourPane' + tabName.charAt(0).toUpperCase() + tabName.slice(1);
+            const pane = document.getElementById(targetId);
+            if (pane) pane.classList.add('active');
+        });
+    });
+
+    tourPromptChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            tourPromptChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            const queryKey = chip.getAttribute('data-query');
+            const data = medicareKnowledge[queryKey];
+            if (data) {
+                renderTourChatMessage(data.user, data.assistant);
+            }
+        });
+    });
+
+    if (tourChatForm && tourChatInput) {
+        tourChatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = tourChatInput.value.trim();
+            if (!text) return;
+            const lower = text.toLowerCase();
+            let responseHtml = "";
+
+            if (lower.includes('dental') || lower.includes('teeth') || lower.includes('dentist')) {
+                responseHtml = "<strong>Dental Coverage Alert:</strong> Original Medicare (Part A & B) does <strong>not</strong> cover routine dental cleanings or dentures. However, many <strong>Medicare Advantage (Part C)</strong> plans include comprehensive dental benefits.";
+            } else if (lower.includes('deductible') || lower.includes('cost') || lower.includes('premium')) {
+                responseHtml = "<strong>2026 Cost Overview:</strong><br>• <strong>Part A Deductible:</strong> $1,676 per benefit period.<br>• <strong>Part B Premium:</strong> Standard ~$185/month with $257 annual deductible, followed by 20% co-insurance.<br>• <strong>Part D Rx Drug Cap:</strong> Max $2,000 annual out-of-pocket spending limit.";
+            } else if (lower.includes('doctor') || lower.includes('specialist') || lower.includes('hospital')) {
+                responseHtml = "<strong>Provider Access:</strong> Under Original Medicare + Medigap, you can consult any doctor across the US that accepts Medicare without referrals. Under Medicare Advantage HMOs, doctor network rules apply.";
+            } else {
+                responseHtml = `<strong>Triage Result for "${text}":</strong><br>Medicare coverage is categorized into <strong>Part A (Hospital)</strong>, <strong>Part B (Medical)</strong>, <strong>Part C (Advantage)</strong>, and <strong>Part D (Prescription Drugs)</strong>. Specific coverage depends on whether your doctor prescribes care under CMS medical necessity guidelines.`;
+            }
+
+            renderTourChatMessage(text, responseHtml);
+            tourChatInput.value = '';
+        });
+    }
+
+    if (tourRequestAccessBtn) {
+        tourRequestAccessBtn.addEventListener('click', () => {
+            closeMedicareTour();
+            scrollToSection('#contact');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+            if (subjectInput) subjectInput.value = "Medicare Assistant — Sandbox Demo Access Request";
+            if (messageInput) messageInput.value = "Hi Kowshik,\n\nI explored the interactive Medicare Assistant product tour on your portfolio. I would like to request sandbox demo access and discuss the architecture.";
+            if (typeof showToast === 'function') {
+                showToast('Contact form pre-filled for Sandbox Access!', 'fa-solid fa-circle-check');
+            }
+        });
+    }
+
+    if (tourDeepDiveArchBtn) {
+        tourDeepDiveArchBtn.addEventListener('click', () => {
+            closeMedicareTour();
+            const archBtn = document.querySelector('.btn-project-deepdive[data-arch="medicare"]');
+            if (archBtn) archBtn.click();
+        });
+    }
+
+    function downloadResumePdf() {
+        const link = document.createElement('a');
+        link.href = 'media/kowshik-kumar-resume.pdf';
+        link.download = 'Kowshik_Kumar_Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        if (typeof showToast === 'function') {
+            showToast('Downloading Resume (PDF)...', 'fa-solid fa-file-pdf');
+        }
+    }
+
+    function downloadResumeDocx() {
+        const link = document.createElement('a');
+        link.href = 'media/kowshik-kumar-resume.docx';
+        link.download = 'Kowshik_Kumar_Resume.docx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        if (typeof showToast === 'function') {
+            showToast('Downloading Resume (DOCX)...', 'fa-solid fa-file-word');
+        }
+    }
+
+    // 7. Interactive Command Palette (Ctrl + K)
     const cmdModal = document.getElementById('cmdPaletteModal');
     const cmdBtn = document.getElementById('cmdPaletteBtn');
     const cmdInput = document.getElementById('cmdInput');
@@ -1100,19 +1292,20 @@ document.addEventListener('DOMContentLoaded', () => {
         { group: "Navigation", title: "Contact Me", desc: "Send message, reach out", icon: "fa-solid fa-paper-plane", action: () => scrollToSection('#contact') },
         
         // Quick Actions
+        { group: "Actions", title: "Download Resume (PDF)", desc: "ATS-compliant PDF resume", icon: "fa-solid fa-file-pdf", badge: "PDF", action: () => downloadResumePdf() },
+        { group: "Actions", title: "Download Resume (DOCX)", desc: "Editable Microsoft Word document", icon: "fa-solid fa-file-word", badge: "DOCX", action: () => downloadResumeDocx() },
+        { group: "Actions", title: "Interactive Resume Sheet", desc: "In-browser resume viewer & print", icon: "fa-solid fa-file-lines", badge: "Modal", action: () => openResumeModal() },
+        { group: "Actions", title: "Print / Save Resume", desc: "Open print preview for PDF export", icon: "fa-solid fa-print", badge: "Print", action: () => window.print() },
         { group: "Actions", title: "Copy Email Address", desc: "kowshiii1208@gmail.com", icon: "fa-regular fa-copy", badge: "Action", action: () => copyEmailToClipboard() },
-        { group: "Actions", title: "Interactive Resume", desc: "Open resume viewer & download DOCX", icon: "fa-solid fa-file-lines", badge: "Modal", action: () => {
-            const resumeBtn = document.getElementById('aboutResumeBtn');
-            if (resumeBtn) resumeBtn.click();
-        }},
         { group: "Actions", title: "Toggle Theme", desc: "Dark / Light Mode", icon: "fa-solid fa-circle-half-stroke", badge: "Toggle", action: () => {
             const themeBtn = document.getElementById('themeToggleBtn');
             if (themeBtn) themeBtn.click();
         }},
         
         // Projects
-        { group: "Projects", title: "EchoLearn", desc: "AI-powered interactive learning platform", icon: "fa-solid fa-robot", badge: "React / AI", action: () => scrollToSection('#projects') },
-        { group: "Projects", title: "Quiz Game System", desc: "C++ & OOP examination platform on Vercel", icon: "fa-solid fa-gamepad", badge: "C++ / Web", action: () => window.open('https://quiz-game-system-eight.vercel.app/', '_blank') },
+        { group: "Projects", title: "Medicare Assistant (Product Tour)", desc: "Interactive healthcare AI sandbox & plan matrix", icon: "fa-solid fa-circle-play", badge: "Tour", action: () => openMedicareTour() },
+        { group: "Projects", title: "EchoLearn (Live Demo)", desc: "AI-powered conversational learning platform", icon: "fa-solid fa-robot", badge: "React / AI", action: () => window.open('https://learn-buddy-core.lovable.app', '_blank') },
+        { group: "Projects", title: "Quiz Game System (Live)", desc: "C++ & OOP examination platform on Vercel", icon: "fa-solid fa-gamepad", badge: "C++ / Web", action: () => window.open('https://quiz-game-system-eight.vercel.app/', '_blank') },
         { group: "Projects", title: "Medicare Assistant", desc: "Healthcare insurance guide for seniors", icon: "fa-solid fa-heart-pulse", badge: "React / Supabase", action: () => scrollToSection('#projects') },
 
         // External Profiles

@@ -1,0 +1,17 @@
+{
+  "name": "Kowshik Kumar Yanamala | Portfolio",
+  "short_name": "Kowshik",
+  "description": "Portfolio of Kowshik Kumar Yanamala - Aspiring Full Stack Developer & Competitive Programmer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0B1120",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
